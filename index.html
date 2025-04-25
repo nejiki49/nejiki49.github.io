@@ -2,46 +2,2438 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>あなたのＨＰタイトル</title>
-    <meta name="keywords" content="ページのキーワードA,B,C" />
-    <meta name="description" content="ページの説明" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
+    <!-- <meta http-equiv="Pragma" content="no-cache" /> -->
+    <!-- <meta http-equiv="Cache-Control" content="no-cache" /> -->
+    <title>金ネジキ 攻略｜バトルファクトリー｜ダメージ計算機</title>
+    <meta
+      name="description"
+      content="こちらのサイトはネジキ攻略　バトルファクトリー　シングルバトル用のダメージ計算機です。　プラチナ　ハートゴールド　ソールシルバー　におけるバトルファクトリー　ダメージ計算が行えます。"
+    />
+    <script src="js/data.js?20250105"></script>
+    <script src="js/add.js?20250105"></script>
+    <script src="js/add_tab2.js?20250105"></script>
+    <script src="js/add_tab3.js?20250105"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js?20250105"></script>
+
+    <link rel="stylesheet" href="css/styles.css?20250105" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js?20250105"></script>
+    <script src="js/jquery.tab.js?20250105" type="text/javascript"></script>
+    <link rel="stylesheet" href="/css/select2.css?20250105" />
   </head>
-  <body>
-    <div id="outer">
-      <header>
-        <div id="header-container">
-          <div id="head-inner">
-            <h1>あなたのＨＰタイトル</h1>
-            <p class="description">あなたのＨＰの説明文</p>
+
+  <body class="body mx-auto">
+    <header class="bg-white d-flex justify-content-center align-items-center">
+      <img class="header-img d-inline-block" src="/gold.png" height="50" width="52" />
+      <h1 class="header-title text-center">ネジキダメージ</h1>
+      <img class="header-img d-inline-block" src="/calc.png" height="50" width="110" />
+    </header>
+    <hr class="mt-0 mb-4" />
+    <!-- <a href="https://nejikipoke.hatenadiary.com/entry/2023/06/15/015638">使い方はこちら</a> -->
+    <p class="text-end text-light px-3">2024/01/05更新。不具合修正。</p>
+
+    <div class="bg-white">
+      <div id="tabs">
+        <ul class="sticky-top bg-white">
+          <li>
+            <img id="mypoketabicon" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-left-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"
+              />
+            </svg>
+            <img id="tekipoketabicon" />
+          </li>
+          <li>
+            <img id="mypoketabicon_tab2" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-left-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"
+              />
+              <img id="tekipoketabicon_tab2" />
+            </svg>
+          </li>
+          <li>
+            <img id="mypoketabicon_tab3" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-arrow-left-right"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"
+              />
+            </svg>
+            <img id="tekipoketabicon_tab3" />
+          </li>
+        </ul>
+
+        <!--↓↓タブ1↓↓-->
+        <!--↓↓タブ1↓↓　-->
+
+        <div>
+          <div class="mx-2 py-2 bg-white rounded-4 text-center">
+            <div id="HGSSPt" class="btn-group cp_ipradio w-100">
+              <input type="radio" class="btn-check" name="HGSSPt" id="Pt" value="1" checked />
+              <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Pt">プラチナ</label>
+              <input type="radio" class="btn-check" name="HGSSPt" id="HGSS" value="0" />
+              <label class="btn btn-secondary rounded-0 py-3 fs-5" for="HGSS">HGSS</label>
+            </div>
+            <hr class="my-1" />
+            <div id="level_selection" class="btn-group cp_ipradio w-100">
+              <input type="radio" class="btn-check" name="Lv" id="Lv100" value="100" checked />
+              <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Lv100">オープン</label>
+              <input type="radio" class="btn-check" name="Lv" id="Lv50" value="50" />
+              <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Lv50">Lv.50</label>
+            </div>
+
+            <hr class="my-1" />
+
+            <div id="shape-num" class="cp_ipradio text-center text-center row g-0">
+              <div class="">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num0" value="0" checked />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num0">選択なし</label>
+              </div>
+
+              <div class="col-3">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num1" value="1" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num1">1周目</label>
+              </div>
+
+              <div class="col-3">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num2" value="2" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num2">2周目</label>
+              </div>
+
+              <div class="col-3">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num3" value="3" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num3">3周目</label>
+              </div>
+
+              <div class="col-3">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num4" value="4" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num4">4周目</label>
+              </div>
+
+              <!-- <div class="col-12"></div> -->
+
+              <div class="col-3">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num5" value="5" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num5">5周目</label>
+              </div>
+
+              <div class="col-3">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num6" value="6" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num6">6周目</label>
+              </div>
+
+              <div class="col-3">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num7" value="7" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num7">7周目</label>
+              </div>
+
+              <div class="col-3">
+                <input type="radio" class="btn-check" name="shape-num" id="shape-num8" value="8" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num8">8周目</label>
+              </div>
+            </div>
+
+            <!-- <hr class="my-1" /> -->
+
+            <div id="my">
+              <div class="my-3">
+                <select class="custom-select sources" id="mypokename">
+                  <!-- 他のポケモンの選択肢を追加 -->
+                </select>
+              </div>
+
+              <div id="pokeShape" class="cp_ipradio btn-group w-100">
+                <input type="radio" class="btn-check" name="shape" id="shape1" value="1" checked />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape1">1型</label>
+                <input type="radio" class="btn-check" name="shape" id="shape2" value="2" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape2">2型</label>
+                <input type="radio" class="btn-check" name="shape" id="shape3" value="3" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape3">3型</label>
+                <input type="radio" class="btn-check" name="shape" id="shape4" value="4" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape4">4型</label>
+              </div>
+              <div class="">
+                型を選ぶと↓下に候補の<span class="text-info">個体値</span>が表示されます。<br /><span
+                  class="text-danger"
+                  >ゲームと同じステータス</span
+                >
+                になるよう切り替えてください。
+              </div>
+              <div id="kota" class="cp_ipradio btn-group w-100"></div>
+
+              <div class="my_ST">
+                <div class="d-flex">
+                  <img id="mypokeicon" class="my-auto" />
+                  <p id="mypoke_status" class="mx-auto">自分ポケモンステータス</p>
+                </div>
+              </div>
+            </div>
+
+            <div id="teki">
+              <div class="d-none" style="font-size: 10px">
+                ヒント<br />
+                ※n周目最終戦のランク：n+1 以下は1〜6戦目のトレーナーランク<br />
+                1周目　ランク1：すべて<br />
+                2周目　ランク2：自転車/バトガ/空手/マダム/ベテラン/　他はランク1 <br />
+                3周目　ランク3：スキン/サイキッカー/ブリーダー/ジェントル/研究員/ピエロ/　他はランク2 <br />
+                4周目　ランク4：竜使い/エリトレ/レンジャー/　他はランク3 <br />
+                5周目　ランク5：短パン/ミニスカ/塾帰り/御坊ちゃま/お嬢様/虫取り/〇〇ごっこ/アイドル/　他はランク4 <br />
+                6周目　ランク6：ジョギング/釣り人/遺跡/コレクター/ギタリスト/鳥使い/船乗り/山男/警察/ギャンブラー/　他はランク5
+                <br />
+                7周目　ランク7：キャンプ/ピクニック/大好きクラブ/ギタリスト(クワン,モンクットのみ)/アイドル/牧おじ/牛ガール/　他はランク6
+                <br />
+              </div>
+              <div class="my-3">
+                <select class="custom-select sources" id="trainers">
+                  <!-- トレーナーの選択肢を追加 -->
+                </select>
+              </div>
+
+              <select class="custom-select sources" id="tekipokename">
+                <!-- 敵のポケモンの選択肢を追加 -->
+              </select>
+              <div>
+                <img
+                  class="tekipokeicon"
+                  alt="敵のポケモンアイコン"
+                  src="https://veekun.com/dex/media/pokemon/main-sprites/black-white/0.png"
+                />
+              </div>
+              <div class="trainer_ST d-none">
+                <p id="trainer_status"></p>
+              </div>
+              <ol class="teki_ST">
+                <li id="tekipoke_status1">敵型1ステータス</li>
+                <li id="tekipoke_status2">敵型2ステータス</li>
+                <li id="tekipoke_status3">敵型3ステータス</li>
+                <li id="tekipoke_status4">敵型4ステータス</li>
+              </ol>
+            </div>
+            <div class="calc">
+              <br />
+              <br />
+
+              <div class="Rank d-flex justify-content-around fs-3">
+                <div class="myRank">
+                  自分ランク
+                  <div class="rank-container">
+                    A
+                    <div class="rank-value" id="myRankA">+0</div>
+                    <button class="rnk-button" onclick="add('A', true)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('A', true)">-</button>
+                  </div>
+
+                  <div class="rank-container">
+                    B
+                    <div class="rank-value" id="myRankB">+0</div>
+                    <button class="rnk-button" onclick="add('B', true)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('B', true)">-</button>
+                  </div>
+
+                  <div class="rank-container">
+                    C
+                    <div class="rank-value" id="myRankC">+0</div>
+                    <button class="rnk-button" onclick="add('C', true)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('C', true)">-</button>
+                  </div>
+
+                  <div class="rank-container">
+                    D
+                    <div class="rank-value" id="myRankD">+0</div>
+                    <button class="rnk-button" onclick="add('D', true)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('D', true)">-</button>
+                  </div>
+
+                  <div class="rank-container">
+                    S
+                    <div class="rank-value" id="myRankS">+0</div>
+                    <button class="rnk-button" onclick="add('S', true)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('S', true)">-</button>
+                  </div>
+                </div>
+                <br />
+                <br />
+                <br />
+                <div class="tekiRank">
+                  敵ランク
+                  <div class="rank-container">
+                    A
+                    <div class="rank-value" id="tekiRankA">+0</div>
+                    <button class="rnk-button" onclick="add('A', false)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('A', false)">-</button>
+                  </div>
+
+                  <div class="rank-container">
+                    B
+                    <div class="rank-value" id="tekiRankB">+0</div>
+                    <button class="rnk-button" onclick="add('B', false)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('B', false)">-</button>
+                  </div>
+
+                  <div class="rank-container">
+                    C
+                    <div class="rank-value" id="tekiRankC">+0</div>
+                    <button class="rnk-button" onclick="add('C', false)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('C', false)">-</button>
+                  </div>
+
+                  <div class="rank-container">
+                    D
+                    <div class="rank-value" id="tekiRankD">+0</div>
+                    <button class="rnk-button" onclick="add('D', false)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('D', false)">-</button>
+                  </div>
+
+                  <div class="rank-container">
+                    S
+                    <div class="rank-value" id="tekiRankS">+0</div>
+                    <button class="rnk-button" onclick="add('S', false)">＋</button>
+                    <button class="rnk-button ms-2" onclick="subtract('S', false)">-</button>
+                  </div>
+                </div>
+              </div>
+              <br /><br />
+
+              <button class="rnk-button" id="myItemAuto">持ち物自動検索</button><br />
+              <button class="rnk-button mx-auto px-5" id="myItemAutoApply">計算に反映</button><br />
+              <div class="myItem">
+                <label for="myItem">自分持ち物</label>
+                <select id="myItem">
+                  <option value="0" selected>(なし/その他)</option>
+                  <option value="あやしいおこう">あやしいおこう</option>
+                  <option value="いのちのたま">いのちのたま</option>
+                  <option value="うしおのおこう">うしおのおこう</option>
+                  <option value="おはなのおこう">おはなのおこう</option>
+                  <option value="かたいいし">かたいいし</option>
+                  <option value="がんせきおこう">がんせきおこう</option>
+                  <option value="きせきのタネ">きせきのタネ</option>
+                  <option value="ぎんのこな">ぎんのこな</option>
+                  <option value="くろいてっきゅう">くろいてっきゅう</option>
+                  <option value="くろいメガネ">くろいメガネ</option>
+                  <option value="くろおび">くろおび</option>
+                  <option value="こだわりハチマキ">こだわりハチマキ</option>
+                  <option value="こだわりメガネ">こだわりメガネ</option>
+                  <option value="こだわりスカーフ">こだわりスカーフ</option>
+                  <option value="さざなみのおこう">さざなみのおこう</option>
+                  <option value="じしゃく">じしゃく</option>
+                  <option value="シルクのスカーフ">シルクのスカーフ</option>
+                  <option value="しんぴのしずく">しんぴのしずく</option>
+                  <option value="するどいくちばし">するどいくちばし</option>
+                  <option value="たつじんのおび">たつじんのおび</option>
+                  <option value="ちからのハチマキ">ちからのハチマキ</option>
+                  <option value="どくバリ">どくバリ</option>
+                  <option value="とけないこおり">とけないこおり</option>
+                  <option value="のろいのおふだ">のろいのおふだ</option>
+                  <option value="ふといホネ">ふといホネ</option>
+                  <option value="まがったスプーン">まがったスプーン</option>
+                  <option value="メタルコート">メタルコート</option>
+                  <option value="もくたん">もくたん</option>
+                  <option value="ものしりメガネ">ものしりメガネ</option>
+                  <option value="やわらかいすな">やわらかいすな</option>
+                  <option value="りゅうのキバ">りゅうのキバ</option>
+                  <option value="しんかいのウロコ">しんかいのウロコ</option>
+                  <option value="半減きのみ">----↓半減きのみ----</option>
+                  <option value="イトケのみ">イトケのみ</option>
+                  <option value="ウタンのみ">ウタンのみ</option>
+                  <option value="オッカのみ">オッカのみ</option>
+                  <option value="シュカのみ">シュカのみ</option>
+                  <option value="ソクノのみ">ソクノのみ</option>
+                  <option value="ナモのみ">ナモのみ</option>
+                  <option value="バコウのみ">バコウのみ</option>
+                  <option value="ハバンのみ">ハバンのみ</option>
+                  <option value="ヤチェのみ">ヤチェのみ</option>
+                  <option value="ヨプのみ">ヨプのみ</option>
+                  <option value="ヨロギのみ">ヨロギのみ</option>
+                  <option value="リンドのみ">リンドのみ</option>
+                </select>
+              </div>
+
+              <br />
+
+              <div class="tekiItem">
+                <label for="tekiItem1">敵型1持ち物</label>
+                <select id="tekiItem1">
+                  <option value="0" selected>(なし/その他)</option>
+                  <option value="あやしいおこう">あやしいおこう</option>
+                  <option value="いのちのたま">いのちのたま</option>
+                  <option value="うしおのおこう">うしおのおこう</option>
+                  <option value="おはなのおこう">おはなのおこう</option>
+                  <option value="かたいいし">かたいいし</option>
+                  <option value="がんせきおこう">がんせきおこう</option>
+                  <option value="きせきのタネ">きせきのタネ</option>
+                  <option value="ぎんのこな">ぎんのこな</option>
+                  <option value="くろいてっきゅう">くろいてっきゅう</option>
+                  <option value="くろいメガネ">くろいメガネ</option>
+                  <option value="くろおび">くろおび</option>
+                  <option value="こだわりハチマキ">こだわりハチマキ</option>
+                  <option value="こだわりメガネ">こだわりメガネ</option>
+                  <option value="こだわりスカーフ">こだわりスカーフ</option>
+                  <option value="さざなみのおこう">さざなみのおこう</option>
+                  <option value="じしゃく">じしゃく</option>
+                  <option value="シルクのスカーフ">シルクのスカーフ</option>
+                  <option value="しんぴのしずく">しんぴのしずく</option>
+                  <option value="するどいくちばし">するどいくちばし</option>
+                  <option value="たつじんのおび">たつじんのおび</option>
+                  <option value="ちからのハチマキ">ちからのハチマキ</option>
+                  <option value="どくバリ">どくバリ</option>
+                  <option value="とけないこおり">とけないこおり</option>
+                  <option value="のろいのおふだ">のろいのおふだ</option>
+                  <option value="ふといホネ">ふといホネ</option>
+                  <option value="まがったスプーン">まがったスプーン</option>
+                  <option value="メタルコート">メタルコート</option>
+                  <option value="もくたん">もくたん</option>
+                  <option value="ものしりメガネ">ものしりメガネ</option>
+                  <option value="やわらかいすな">やわらかいすな</option>
+                  <option value="りゅうのキバ">りゅうのキバ</option>
+                  <option value="しんかいのウロコ">しんかいのウロコ</option>
+                  <option value="半減きのみ">----↓半減きのみ----</option>
+                  <option value="イトケのみ">イトケのみ</option>
+                  <option value="ウタンのみ">ウタンのみ</option>
+                  <option value="オッカのみ">オッカのみ</option>
+                  <option value="シュカのみ">シュカのみ</option>
+                  <option value="ソクノのみ">ソクノのみ</option>
+                  <option value="ナモのみ">ナモのみ</option>
+                  <option value="バコウのみ">バコウのみ</option>
+                  <option value="ハバンのみ">ハバンのみ</option>
+                  <option value="ヤチェのみ">ヤチェのみ</option>
+                  <option value="ヨプのみ">ヨプのみ</option>
+                  <option value="ヨロギのみ">ヨロギのみ</option>
+                  <option value="リンドのみ">リンドのみ</option>
+                </select>
+                <br />
+                <label for="tekiItem2">敵型2持ち物</label>
+                <select id="tekiItem2">
+                  <option value="0" selected>(なし/その他)</option>
+                  <option value="あやしいおこう">あやしいおこう</option>
+                  <option value="いのちのたま">いのちのたま</option>
+                  <option value="うしおのおこう">うしおのおこう</option>
+                  <option value="おはなのおこう">おはなのおこう</option>
+                  <option value="かたいいし">かたいいし</option>
+                  <option value="がんせきおこう">がんせきおこう</option>
+                  <option value="きせきのタネ">きせきのタネ</option>
+                  <option value="ぎんのこな">ぎんのこな</option>
+                  <option value="くろいてっきゅう">くろいてっきゅう</option>
+                  <option value="くろいメガネ">くろいメガネ</option>
+                  <option value="くろおび">くろおび</option>
+                  <option value="こだわりハチマキ">こだわりハチマキ</option>
+                  <option value="こだわりメガネ">こだわりメガネ</option>
+                  <option value="こだわりスカーフ">こだわりスカーフ</option>
+                  <option value="さざなみのおこう">さざなみのおこう</option>
+                  <option value="じしゃく">じしゃく</option>
+                  <option value="シルクのスカーフ">シルクのスカーフ</option>
+                  <option value="しんぴのしずく">しんぴのしずく</option>
+                  <option value="するどいくちばし">するどいくちばし</option>
+                  <option value="たつじんのおび">たつじんのおび</option>
+                  <option value="ちからのハチマキ">ちからのハチマキ</option>
+                  <option value="どくバリ">どくバリ</option>
+                  <option value="とけないこおり">とけないこおり</option>
+                  <option value="のろいのおふだ">のろいのおふだ</option>
+                  <option value="ふといホネ">ふといホネ</option>
+                  <option value="まがったスプーン">まがったスプーン</option>
+                  <option value="メタルコート">メタルコート</option>
+                  <option value="もくたん">もくたん</option>
+                  <option value="ものしりメガネ">ものしりメガネ</option>
+                  <option value="やわらかいすな">やわらかいすな</option>
+                  <option value="りゅうのキバ">りゅうのキバ</option>
+                  <option value="しんかいのウロコ">しんかいのウロコ</option>
+                  <option value="半減きのみ">----↓半減きのみ----</option>
+                  <option value="イトケのみ">イトケのみ</option>
+                  <option value="ウタンのみ">ウタンのみ</option>
+                  <option value="オッカのみ">オッカのみ</option>
+                  <option value="シュカのみ">シュカのみ</option>
+                  <option value="ソクノのみ">ソクノのみ</option>
+                  <option value="ナモのみ">ナモのみ</option>
+                  <option value="バコウのみ">バコウのみ</option>
+                  <option value="ハバンのみ">ハバンのみ</option>
+                  <option value="ヤチェのみ">ヤチェのみ</option>
+                  <option value="ヨプのみ">ヨプのみ</option>
+                  <option value="ヨロギのみ">ヨロギのみ</option>
+                  <option value="リンドのみ">リンドのみ</option>
+                </select>
+                <br />
+
+                <label for="tekiItem3">敵型3持ち物</label>
+                <select id="tekiItem3">
+                  <option value="0" selected>(なし/その他)</option>
+                  <option value="あやしいおこう">あやしいおこう</option>
+                  <option value="いのちのたま">いのちのたま</option>
+                  <option value="うしおのおこう">うしおのおこう</option>
+                  <option value="おはなのおこう">おはなのおこう</option>
+                  <option value="かたいいし">かたいいし</option>
+                  <option value="がんせきおこう">がんせきおこう</option>
+                  <option value="きせきのタネ">きせきのタネ</option>
+                  <option value="ぎんのこな">ぎんのこな</option>
+                  <option value="くろいてっきゅう">くろいてっきゅう</option>
+                  <option value="くろいメガネ">くろいメガネ</option>
+                  <option value="くろおび">くろおび</option>
+                  <option value="こだわりハチマキ">こだわりハチマキ</option>
+                  <option value="こだわりメガネ">こだわりメガネ</option>
+                  <option value="こだわりスカーフ">こだわりスカーフ</option>
+                  <option value="さざなみのおこう">さざなみのおこう</option>
+                  <option value="じしゃく">じしゃく</option>
+                  <option value="シルクのスカーフ">シルクのスカーフ</option>
+                  <option value="しんぴのしずく">しんぴのしずく</option>
+                  <option value="するどいくちばし">するどいくちばし</option>
+                  <option value="たつじんのおび">たつじんのおび</option>
+                  <option value="ちからのハチマキ">ちからのハチマキ</option>
+                  <option value="どくバリ">どくバリ</option>
+                  <option value="とけないこおり">とけないこおり</option>
+                  <option value="のろいのおふだ">のろいのおふだ</option>
+                  <option value="ふといホネ">ふといホネ</option>
+                  <option value="まがったスプーン">まがったスプーン</option>
+                  <option value="メタルコート">メタルコート</option>
+                  <option value="もくたん">もくたん</option>
+                  <option value="ものしりメガネ">ものしりメガネ</option>
+                  <option value="やわらかいすな">やわらかいすな</option>
+                  <option value="りゅうのキバ">りゅうのキバ</option>
+                  <option value="しんかいのウロコ">しんかいのウロコ</option>
+                  <option value="半減きのみ">----↓半減きのみ----</option>
+                  <option value="イトケのみ">イトケのみ</option>
+                  <option value="ウタンのみ">ウタンのみ</option>
+                  <option value="オッカのみ">オッカのみ</option>
+                  <option value="シュカのみ">シュカのみ</option>
+                  <option value="ソクノのみ">ソクノのみ</option>
+                  <option value="ナモのみ">ナモのみ</option>
+                  <option value="バコウのみ">バコウのみ</option>
+                  <option value="ハバンのみ">ハバンのみ</option>
+                  <option value="ヤチェのみ">ヤチェのみ</option>
+                  <option value="ヨプのみ">ヨプのみ</option>
+                  <option value="ヨロギのみ">ヨロギのみ</option>
+                  <option value="リンドのみ">リンドのみ</option>
+                </select>
+                <br />
+                <label for="tekiItem4">敵型4持ち物</label>
+                <select id="tekiItem4">
+                  <option value="0" selected>(なし/その他)</option>
+                  <option value="あやしいおこう">あやしいおこう</option>
+                  <option value="いのちのたま">いのちのたま</option>
+                  <option value="うしおのおこう">うしおのおこう</option>
+                  <option value="おはなのおこう">おはなのおこう</option>
+                  <option value="かたいいし">かたいいし</option>
+                  <option value="がんせきおこう">がんせきおこう</option>
+                  <option value="きせきのタネ">きせきのタネ</option>
+                  <option value="ぎんのこな">ぎんのこな</option>
+                  <option value="くろいてっきゅう">くろいてっきゅう</option>
+                  <option value="くろいメガネ">くろいメガネ</option>
+                  <option value="くろおび">くろおび</option>
+                  <option value="こだわりハチマキ">こだわりハチマキ</option>
+                  <option value="こだわりメガネ">こだわりメガネ</option>
+                  <option value="こだわりスカーフ">こだわりスカーフ</option>
+                  <option value="さざなみのおこう">さざなみのおこう</option>
+                  <option value="じしゃく">じしゃく</option>
+                  <option value="シルクのスカーフ">シルクのスカーフ</option>
+                  <option value="しんぴのしずく">しんぴのしずく</option>
+                  <option value="するどいくちばし">するどいくちばし</option>
+                  <option value="たつじんのおび">たつじんのおび</option>
+                  <option value="ちからのハチマキ">ちからのハチマキ</option>
+                  <option value="どくバリ">どくバリ</option>
+                  <option value="とけないこおり">とけないこおり</option>
+                  <option value="のろいのおふだ">のろいのおふだ</option>
+                  <option value="ふといホネ">ふといホネ</option>
+                  <option value="まがったスプーン">まがったスプーン</option>
+                  <option value="メタルコート">メタルコート</option>
+                  <option value="もくたん">もくたん</option>
+                  <option value="ものしりメガネ">ものしりメガネ</option>
+                  <option value="やわらかいすな">やわらかいすな</option>
+                  <option value="りゅうのキバ">りゅうのキバ</option>
+                  <option value="しんかいのウロコ">しんかいのウロコ</option>
+                  <option value="半減きのみ">----↓半減きのみ----</option>
+                  <option value="イトケのみ">イトケのみ</option>
+                  <option value="ウタンのみ">ウタンのみ</option>
+                  <option value="オッカのみ">オッカのみ</option>
+                  <option value="シュカのみ">シュカのみ</option>
+                  <option value="ソクノのみ">ソクノのみ</option>
+                  <option value="ナモのみ">ナモのみ</option>
+                  <option value="バコウのみ">バコウのみ</option>
+                  <option value="ハバンのみ">ハバンのみ</option>
+                  <option value="ヤチェのみ">ヤチェのみ</option>
+                  <option value="ヨプのみ">ヨプのみ</option>
+                  <option value="ヨロギのみ">ヨロギのみ</option>
+                  <option value="リンドのみ">リンドのみ</option>
+                </select>
+              </div>
+              <br />
+
+              <div class="myAbility">
+                <label for="myAbility">自分特性</label>
+                <select id="myAbility" style="min-width: 30%">
+                  <option value="" selected>(とくせい)</option>
+                  <option value="いろめがね">いろめがね [こうかはいまひとつの時ダメージ*2]</option>
+                  <option value="げきりゅう">げきりゅう (＋自分のHPが1/3)[水威力*1.5]</option>
+                  <option value="こんじょう">こんじょう (＋状態異常)[攻撃*1.5]</option>
+                  <option value="しんりょく">しんりょく (＋自分のHPが1/3)[草威力*1.5]</option>
+                  <option value="スロースタート">スロースタート (＋5ターン未満)[攻撃*0.5]</option>
+                  <option value="テクニシャン">テクニシャン [威力60以下の技の威力*1.5]</option>
+                  <option value="てきおうりょく">てきおうりょく [タイプ一致補正が*2になる]</option>
+                  <option value="とうそうしん同">とうそうしん (＋同性)[*威力1.25]</option>
+                  <option value="とうそうしん異">とうそうしん (＋異性)[*威力0.75]</option>
+                  <option value="はりきり">はりきり [攻撃*1.5/命中*0.8]</option>
+                  <option value="むしのしらせ">むしのしらせ (＋自分のHPが1/3)[虫威力*1.5]</option>
+                  <option value="もうか">もうか (＋自分のHPが1/3)[炎威力*1.5]</option>
+                  <option value="もらいび">もらいび(＋被炎技)[炎ダメージ*1.5/炎無効]</option>
+                  <option value="ヨガパワー">ヨガパワー [攻撃*2]</option>
+                  //防御特性
+                  <option value="">(---防御特性---)</option>
+                  <option value="あついしぼう">あついしぼう [炎/氷*0.5]</option>
+                  <option value="かんそうはだ">かんそうはだ [炎*1.25/水無効(吸収)]</option>
+                  <option value="たいねつ">たいねつ [炎*0.5]</option>
+                  <option value="ハードロック">ハードロック [こうかはばつぐんの時ダメージ*0.75]</option>
+                  <option value="フィルター">フィルター [こうかはばつぐんの時ダメージ*0.75]</option>
+                  <option value="ふしぎなうろこ">ふしぎなうろこ (＋状態異常)[防御*1.5]</option>
+                  <option value="ふゆう">ふゆう [地面を無効化]</option>
+                </select>
+              </div>
+              <br />
+
+              <div class="tekiAbility">
+                <label for="tekiAbility">敵特性</label>
+                <select id="tekiAbility" style="min-width: 30%">
+                  <option value="" selected>(とくせい)</option>
+                  <option value="いろめがね">いろめがね [こうかはいまひとつの時ダメージ*2]</option>
+                  <option value="げきりゅう">げきりゅう (＋自分のHPが1/3)[水威力*1.5]</option>
+                  <option value="こんじょう">こんじょう (＋状態異常)[攻撃*1.5]</option>
+                  <option value="しんりょく">しんりょく (＋自分のHPが1/3)[草威力*1.5]</option>
+                  <option value="スロースタート">スロースタート (＋5ターン未満)[攻撃*0.5]</option>
+                  <option value="テクニシャン">テクニシャン [威力60以下の技の威力*1.5]</option>
+                  <option value="てきおうりょく">てきおうりょく [タイプ一致補正が*2になる]</option>
+                  <option value="とうそうしん同">とうそうしん (＋同性)[*威力1.25]</option>
+                  <option value="とうそうしん異">とうそうしん (＋異性)[*威力0.75]</option>
+                  <option value="はりきり">はりきり [攻撃*1.5/命中*0.8]</option>
+                  <option value="むしのしらせ">むしのしらせ (＋自分のHPが1/3)[虫威力*1.5]</option>
+                  <option value="もうか">もうか (＋自分のHPが1/3)[炎威力*1.5]</option>
+                  <option value="もらいび">もらいび(＋被炎技)[炎ダメージ*1.5/炎無効]</option>
+                  <option value="ヨガパワー">ヨガパワー [攻撃*2]</option>
+                  //防御特性
+                  <option value="">(---防御特性---)</option>
+                  <option value="あついしぼう">あついしぼう [炎/氷*0.5]</option>
+                  <option value="かんそうはだ">かんそうはだ [炎*1.25/水無効(吸収)]</option>
+                  <option value="たいねつ">たいねつ [炎*0.5]</option>
+                  <option value="ハードロック">ハードロック [こうかはばつぐんの時ダメージ*0.75]</option>
+                  <option value="フィルター">フィルター [こうかはばつぐんの時ダメージ*0.75]</option>
+                  <option value="ふしぎなうろこ">ふしぎなうろこ (＋状態異常)[防御*1.5]</option>
+                  <option value="ふゆう">ふゆう [地面を無効化]</option>
+                </select>
+              </div>
+              <br />
+              <br />
+
+              <div class="Burned app2_checkbox">
+                <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                  <p class="my-auto d-inline-block">[自]やけど</p>
+                  <div class="">
+                    <input type="checkbox" id="myBurned" />
+                    <label for="myBurned"></label>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                  <p class="my-auto d-inline-block">[自]まひ</p>
+                  <div class="">
+                    <input type="checkbox" id="myParalysis" />
+                    <label for="myParalysis"></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="Burned app2_checkbox">
+                <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                  <p class="my-auto d-inline-block">[敵]やけど</p>
+                  <div class="">
+                    <input type="checkbox" id="tekiBurned" />
+                    <label for="tekiBurned"></label>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                  <p class="my-auto d-inline-block">[敵]まひ</p>
+                  <div class="">
+                    <input type="checkbox" id="tekiParalysis" />
+                    <label for="tekiParalysis"></label>
+                  </div>
+                </div>
+              </div>
+              <br />
+
+              <div class="kabe app2_checkbox">
+                <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                  <p class="my-auto d-inline-block">[自]リフレクター</p>
+                  <div class="">
+                    <input type="checkbox" id="myReflect" />
+                    <label for="myReflect"></label>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                  <p class="my-auto d-inline-block">[自]ひかりのかべ</p>
+                  <div class="">
+                    <input type="checkbox" id="myLightScreen" />
+                    <label for="myLightScreen"></label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="kabe app2_checkbox">
+                <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                  <p class="my-auto d-inline-block">[敵]リフレクター</p>
+                  <div class="">
+                    <input type="checkbox" id="tekiReflect" />
+                    <label for="tekiReflect"></label>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                  <p class="my-auto d-inline-block">[敵]ひかりのかべ</p>
+                  <div class="">
+                    <input type="checkbox" id="tekiLightScreen" />
+                    <label for="tekiLightScreen"></label>
+                  </div>
+                </div>
+              </div>
+
+              <br />
+
+              <div class="whether">
+                <label for="whether">天候</label>
+                <select id="whether">
+                  <option value="(ふつう)" selected>(ふつう)</option>
+                  <option value="おおあめ">おおあめ</option>
+                  <option value="ひざしがつよい">ひざしがつよい</option>
+                  <option value="すなあらし">すなあらし</option>
+                  <option value="あられ">あられ</option>
+                </select>
+              </div>
+              <br />
+              <br />
+
+              <div class="zanHP">
+                残HP
+                <input type="text" id="zanHP" value="1" />
+              </div>
+            </div>
+            <br />
+            <br />
+
+            <div class="result">
+              <ol id="myResult" class="myResult">
+                <li id="M1">自分→型1</li>
+                <li id="T1">敵型1→自分</li>
+                <li id="M2">自分→型2</li>
+                <li id="T2">敵型2→自分</li>
+                <li id="M3">自分→型3</li>
+                <li id="T3">敵型3→自分</li>
+                <li id="M4">自分→型4</li>
+                <li id="T4">敵型4→自分</li>
+              </ol>
+            </div>
+
+            <div class="d-none">
+              <button class="rnk-button" id="wanpan1">一括計算1周目[0]</button>
+              <button class="rnk-button" id="wanpan2">一括計算2周目[4]</button>
+              <button class="rnk-button" id="wanpan3">一括計算3周目[8]</button>
+              <button class="rnk-button" id="wanpan4">一括計算4周目[12]</button>
+              <button class="rnk-button" id="wanpan5">一括計算5周目[16]</button>
+              <button class="rnk-button" id="wanpan6">一括計算6周目[20]</button>
+              <button class="rnk-button" id="wanpan7">一括計算7周目[24]</button>
+              <button class="rnk-button" id="wanpan8">一括計算8周目[31]</button>
+            </div>
+            <br /><br />
+            <div id="wanpanresult" class="d-none">ここに表を作成します。</div>
           </div>
         </div>
-      </header>
-      <div id="content-wrapper">
-        <main>
-          <div id="inner">
-            <h2>記事ページ見出し・大大大大大大</h2>
-            <p>文章あれこれ</p>
-            <h3>記事ページ見出し・中</h3>
-            <p>文章あれこれ</p>
-            <h4>記事ページ見出し・小</h4>
-            <p>文章あれこれ</p>
-          </div>
-        </main>
-        <aside>
-          <div id="middle-inner">
-            <div class="side-title">menu</div>
-            <div class="side">
-              <ul>
-                <li>記事ページへのリンク</li>
-                <li>記事ページへのリンク</li>
-              </ul>
+        <!--↑タブ1↑↑ -->
+        <!--↑タブ1↑↑ -->
+
+        <!--↓↓タブ2↓↓-->
+        <!--↓↓タブ2↓↓-->
+        <div>
+          <div>
+            <div class="mx-2 py-2 bg-white rounded-4 text-center">
+              <div id="HGSSPt_tab2" class="btn-group cp_ipradio w-100">
+                <input type="radio" class="btn-check" name="HGSSPt_tab2" id="Pt_tab2" value="1" checked />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Pt_tab2">プラチナ</label>
+                <input type="radio" class="btn-check" name="HGSSPt_tab2" id="HGSS_tab2" value="0" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="HGSS_tab2">HGSS</label>
+              </div>
+              <hr class="my-1" />
+              <div id="level_selection_tab2" class="btn-group cp_ipradio w-100">
+                <input type="radio" class="btn-check" name="Lv_tab2" id="Lv100_tab2" value="100" checked />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Lv100_tab2">オープン</label>
+                <input type="radio" class="btn-check" name="Lv_tab2" id="Lv50_tab2" value="50" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Lv50_tab2">Lv.50</label>
+              </div>
+
+              <hr class="my-1" />
+
+              <div id="shape-num_tab2" class="cp_ipradio text-center text-center row g-0">
+                <div>
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num0_tab2" value="0" checked />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num0_tab2">選択なし</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num1_tab2" value="1" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num1_tab2">1周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num2_tab2" value="2" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num2_tab2">2周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num3_tab2" value="3" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num3_tab2">3周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num4_tab2" value="4" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num4_tab2">4周目</label>
+                </div>
+
+                <!-- <div class="col-12"></div> -->
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num5_tab2" value="5" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num5_tab2">5周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num6_tab2" value="6" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num6_tab2">6周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num7_tab2" value="7" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num7_tab2">7周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab2" id="shape-num8_tab2" value="8" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num8_tab2">8周目</label>
+                </div>
+              </div>
+
+              <!-- <hr class="my-1" /> -->
+
+              <div>
+                <div class="my-3">
+                  <select class="custom-select sources" id="mypokename_tab2">
+                    <!-- 他のポケモンの選択肢を追加 -->
+                  </select>
+                </div>
+
+                <div id="pokeShape_tab2" class="cp_ipradio btn-group w-100">
+                  <input type="radio" class="btn-check" name="shape_tab2" id="shape1_tab2" value="1" checked />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape1_tab2">1型</label>
+                  <input type="radio" class="btn-check" name="shape_tab2" id="shape2_tab2" value="2" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape2_tab2">2型</label>
+                  <input type="radio" class="btn-check" name="shape_tab2" id="shape3_tab2" value="3" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape3_tab2">3型</label>
+                  <input type="radio" class="btn-check" name="shape_tab2" id="shape4_tab2" value="4" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape4_tab2">4型</label>
+                </div>
+                <div>
+                  型を選ぶと↓下に候補の<span class="text-info">個体値</span>が表示されます。<br /><span
+                    class="text-danger"
+                    >ゲームと同じステータス</span
+                  >
+                  になるよう切り替えてください。
+                </div>
+                <div id="kota_tab2" class="cp_ipradio btn-group w-100"></div>
+
+                <div class="my_ST">
+                  <div class="d-flex">
+                    <img id="mypokeicon_tab2" class="my-auto" />
+                    <p id="mypoke_status_tab2" class="mx-auto">自分ポケモンステータス</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="d-none" style="font-size: 10px">
+                  ヒント<br />
+                  ※n周目最終戦のランク：n+1 以下は1〜6戦目のトレーナーランク<br />
+                  1周目　ランク1：すべて<br />
+                  2周目　ランク2：自転車/バトガ/空手/マダム/ベテラン/　他はランク1 <br />
+                  3周目　ランク3：スキン/サイキッカー/ブリーダー/ジェントル/研究員/ピエロ/　他はランク2 <br />
+                  4周目　ランク4：竜使い/エリトレ/レンジャー/　他はランク3 <br />
+                  5周目　ランク5：短パン/ミニスカ/塾帰り/御坊ちゃま/お嬢様/虫取り/〇〇ごっこ/アイドル/　他はランク4
+                  <br />
+                  6周目　ランク6：ジョギング/釣り人/遺跡/コレクター/ギタリスト/鳥使い/船乗り/山男/警察/ギャンブラー/　他はランク5
+                  <br />
+                  7周目　ランク7：キャンプ/ピクニック/大好きクラブ/ギタリスト(クワン,モンクットのみ)/アイドル/牧おじ/牛ガール/　他はランク6
+                  <br />
+                </div>
+                <div class="my-3">
+                  <select class="custom-select sources" id="trainers_tab2">
+                    <!-- トレーナーの選択肢を追加 -->
+                  </select>
+                </div>
+
+                <select class="custom-select sources" id="tekipokename_tab2">
+                  <!-- 敵のポケモンの選択肢を追加 -->
+                </select>
+                <div>
+                  <img
+                    class="tekipokeicon_tab2"
+                    alt="敵のポケモンアイコン"
+                    src="https://veekun.com/dex/media/pokemon/main-sprites/black-white/0.png"
+                  />
+                </div>
+                <div class="trainer_ST d-none">
+                  <p id="trainer_status_tab2"></p>
+                </div>
+                <ol class="teki_ST">
+                  <li id="tekipoke_status1_tab2">敵型1ステータス</li>
+                  <li id="tekipoke_status2_tab2">敵型2ステータス</li>
+                  <li id="tekipoke_status3_tab2">敵型3ステータス</li>
+                  <li id="tekipoke_status4_tab2">敵型4ステータス</li>
+                </ol>
+              </div>
+              <div class="calc">
+                <br />
+                <br />
+
+                <div class="Rank d-flex justify-content-around fs-3">
+                  <div class="myRank">
+                    自分ランク
+                    <div class="rank-container">
+                      A
+                      <div class="rank-value" id="myRankA_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('A', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('A', true)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      B
+                      <div class="rank-value" id="myRankB_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('B', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('B', true)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      C
+                      <div class="rank-value" id="myRankC_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('C', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('C', true)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      D
+                      <div class="rank-value" id="myRankD_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('D', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('D', true)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      S
+                      <div class="rank-value" id="myRankS_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('S', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('S', true)">-</button>
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+                  <br />
+                  <div class="tekiRank">
+                    敵ランク
+                    <div class="rank-container">
+                      A
+                      <div class="rank-value" id="tekiRankA_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('A', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('A', false)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      B
+                      <div class="rank-value" id="tekiRankB_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('B', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('B', false)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      C
+                      <div class="rank-value" id="tekiRankC_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('C', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('C', false)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      D
+                      <div class="rank-value" id="tekiRankD_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('D', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('D', false)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      S
+                      <div class="rank-value" id="tekiRankS_tab2">+0</div>
+                      <button class="rnk-button" onclick="add_tab2('S', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab2('S', false)">-</button>
+                    </div>
+                  </div>
+                </div>
+                <br /><br />
+
+                <button class="rnk-button" id="myItemAuto_tab2">持ち物自動検索</button><br />
+                <button class="rnk-button mx-auto px-5" id="myItemAutoApply_tab2">計算に反映</button><br />
+                <div class="myItem_tab2">
+                  <label for="myItem_tab2">自分持ち物</label>
+                  <select id="myItem_tab2">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                </div>
+
+                <br />
+
+                <div class="tekiItem">
+                  <label for="tekiItem1_tab2">敵型1持ち物</label>
+                  <select id="tekiItem1_tab2">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                  <br />
+                  <label for="tekiItem2_tab2">敵型2持ち物</label>
+                  <select id="tekiItem2_tab2">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                  <br />
+
+                  <label for="tekiItem3_tab2">敵型3持ち物</label>
+                  <select id="tekiItem3_tab2">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                  <br />
+                  <label for="tekiItem4_tab2">敵型4持ち物</label>
+                  <select id="tekiItem4_tab2">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                </div>
+                <br />
+
+                <div class="myAbility_tab2">
+                  <label for="myAbility_tab2">自分特性</label>
+                  <select id="myAbility_tab2" style="min-width: 30%">
+                    <option value="" selected>(とくせい)</option>
+                    <option value="いろめがね">いろめがね [こうかはいまひとつの時ダメージ*2]</option>
+                    <option value="げきりゅう">げきりゅう (＋自分のHPが1/3)[水威力*1.5]</option>
+                    <option value="こんじょう">こんじょう (＋状態異常)[攻撃*1.5]</option>
+                    <option value="しんりょく">しんりょく (＋自分のHPが1/3)[草威力*1.5]</option>
+                    <option value="スロースタート">スロースタート (＋5ターン未満)[攻撃*0.5]</option>
+                    <option value="テクニシャン">テクニシャン [威力60以下の技の威力*1.5]</option>
+                    <option value="てきおうりょく">てきおうりょく [タイプ一致補正が*2になる]</option>
+                    <option value="とうそうしん同">とうそうしん (＋同性)[*威力1.25]</option>
+                    <option value="とうそうしん異">とうそうしん (＋異性)[*威力0.75]</option>
+                    <option value="はりきり">はりきり [攻撃*1.5/命中*0.8]</option>
+                    <option value="むしのしらせ">むしのしらせ (＋自分のHPが1/3)[虫威力*1.5]</option>
+                    <option value="もうか">もうか (＋自分のHPが1/3)[炎威力*1.5]</option>
+                    <option value="もらいび">もらいび(＋被炎技)[炎ダメージ*1.5/炎無効]</option>
+                    <option value="ヨガパワー">ヨガパワー [攻撃*2]</option>
+                    //防御特性
+                    <option value="">(---防御特性---)</option>
+                    <option value="あついしぼう">あついしぼう [炎/氷*0.5]</option>
+                    <option value="かんそうはだ">かんそうはだ [炎*1.25/水無効(吸収)]</option>
+                    <option value="たいねつ">たいねつ [炎*0.5]</option>
+                    <option value="ハードロック">ハードロック [こうかはばつぐんの時ダメージ*0.75]</option>
+                    <option value="フィルター">フィルター [こうかはばつぐんの時ダメージ*0.75]</option>
+                    <option value="ふしぎなうろこ">ふしぎなうろこ (＋状態異常)[防御*1.5]</option>
+                    <option value="ふゆう">ふゆう [地面を無効化]</option>
+                  </select>
+                </div>
+                <br />
+
+                <div class="tekiAbility_tab2">
+                  <label for="tekiAbility_tab2">敵特性</label>
+                  <select id="tekiAbility_tab2" style="min-width: 30%">
+                    <option value="" selected>(とくせい)</option>
+                    <option value="いろめがね">いろめがね [こうかはいまひとつの時ダメージ*2]</option>
+                    <option value="げきりゅう">げきりゅう (＋自分のHPが1/3)[水威力*1.5]</option>
+                    <option value="こんじょう">こんじょう (＋状態異常)[攻撃*1.5]</option>
+                    <option value="しんりょく">しんりょく (＋自分のHPが1/3)[草威力*1.5]</option>
+                    <option value="スロースタート">スロースタート (＋5ターン未満)[攻撃*0.5]</option>
+                    <option value="テクニシャン">テクニシャン [威力60以下の技の威力*1.5]</option>
+                    <option value="てきおうりょく">てきおうりょく [タイプ一致補正が*2になる]</option>
+                    <option value="とうそうしん同">とうそうしん (＋同性)[*威力1.25]</option>
+                    <option value="とうそうしん異">とうそうしん (＋異性)[*威力0.75]</option>
+                    <option value="はりきり">はりきり [攻撃*1.5/命中*0.8]</option>
+                    <option value="むしのしらせ">むしのしらせ (＋自分のHPが1/3)[虫威力*1.5]</option>
+                    <option value="もうか">もうか (＋自分のHPが1/3)[炎威力*1.5]</option>
+                    <option value="もらいび">もらいび(＋被炎技)[炎ダメージ*1.5/炎無効]</option>
+                    <option value="ヨガパワー">ヨガパワー [攻撃*2]</option>
+                    //防御特性
+                    <option value="">(---防御特性---)</option>
+                    <option value="あついしぼう">あついしぼう [炎/氷*0.5]</option>
+                    <option value="かんそうはだ">かんそうはだ [炎*1.25/水無効(吸収)]</option>
+                    <option value="たいねつ">たいねつ [炎*0.5]</option>
+                    <option value="ハードロック">ハードロック [こうかはばつぐんの時ダメージ*0.75]</option>
+                    <option value="フィルター">フィルター [こうかはばつぐんの時ダメージ*0.75]</option>
+                    <option value="ふしぎなうろこ">ふしぎなうろこ (＋状態異常)[防御*1.5]</option>
+                    <option value="ふゆう">ふゆう [地面を無効化]</option>
+                  </select>
+                </div>
+                <br />
+                <br />
+
+                <div class="Burned app2_checkbox">
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[自]やけど</p>
+                    <div>
+                      <input type="checkbox" id="myBurned_tab2" />
+                      <label for="myBurned_tab2"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[自]まひ</p>
+                    <div>
+                      <input type="checkbox" id="myParalysis_tab2" />
+                      <label for="myParalysis_tab2"></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="Burned app2_checkbox">
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[敵]やけど</p>
+                    <div>
+                      <input type="checkbox" id="tekiBurned_tab2" />
+                      <label for="tekiBurned_tab2"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[敵]まひ</p>
+                    <div>
+                      <input type="checkbox" id="tekiParalysis_tab2" />
+                      <label for="tekiParalysis_tab2"></label>
+                    </div>
+                  </div>
+                </div>
+                <br />
+
+                <div class="kabe app2_checkbox">
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[自]リフレクター</p>
+                    <div>
+                      <input type="checkbox" id="myReflect_tab2" />
+                      <label for="myReflect_tab2"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[自]ひかりのかべ</p>
+                    <div>
+                      <input type="checkbox" id="myLightScreen_tab2" />
+                      <label for="myLightScreen_tab2"></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kabe app2_checkbox">
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[敵]リフレクター</p>
+                    <div>
+                      <input type="checkbox" id="tekiReflect_tab2" />
+                      <label for="tekiReflect_tab2"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[敵]ひかりのかべ</p>
+                    <div>
+                      <input type="checkbox" id="tekiLightScreen_tab2" />
+                      <label for="tekiLightScreen_tab2"></label>
+                    </div>
+                  </div>
+                </div>
+
+                <br />
+
+                <div class="whether_tab2">
+                  <label for="whether_tab2">天候</label>
+                  <select id="whether_tab2">
+                    <option value="(ふつう)" selected>(ふつう)</option>
+                    <option value="おおあめ">おおあめ</option>
+                    <option value="ひざしがつよい">ひざしがつよい</option>
+                    <option value="すなあらし">すなあらし</option>
+                    <option value="あられ">あられ</option>
+                  </select>
+                </div>
+                <br />
+                <br />
+
+                <div class="zanHP_tab2">
+                  残HP
+                  <input type="text" id="zanHP_tab2" value="1" />
+                </div>
+              </div>
+              <br />
+              <br />
+
+              <div class="result">
+                <ol id="myResult_tab2" class="myResult_tab2">
+                  <li id="M1_tab2">自分→型1</li>
+                  <li id="T1_tab2">敵型1→自分</li>
+                  <li id="M2_tab2">自分→型2</li>
+                  <li id="T2_tab2">敵型2→自分</li>
+                  <li id="M3_tab2">自分→型3</li>
+                  <li id="T3_tab2">敵型3→自分</li>
+                  <li id="M4_tab2">自分→型4</li>
+                  <li id="T4_tab2">敵型4→自分</li>
+                </ol>
+              </div>
+
+              <br /><br />
             </div>
           </div>
-        </aside>
+        </div>
+
+        <!--↑タブ2↑↑ -->
+        <!--↑タブ2↑↑ -->
+
+        <!--↓↓タブ3↓↓-->
+        <!--↓↓タブ3↓↓-->
+        <div>
+          <div>
+            <div class="mx-2 py-2 bg-white rounded-4 text-center">
+              <div id="HGSSPt_tab3" class="btn-group cp_ipradio w-100">
+                <input type="radio" class="btn-check" name="HGSSPt_tab3" id="Pt_tab3" value="1" checked />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Pt_tab3">プラチナ</label>
+                <input type="radio" class="btn-check" name="HGSSPt_tab3" id="HGSS_tab3" value="0" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="HGSS_tab3">HGSS</label>
+              </div>
+              <hr class="my-1" />
+              <div id="level_selection_tab3" class="btn-group cp_ipradio w-100">
+                <input type="radio" class="btn-check" name="Lv_tab3" id="Lv100_tab3" value="100" checked />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Lv100_tab3">オープン</label>
+                <input type="radio" class="btn-check" name="Lv_tab3" id="Lv50_tab3" value="50" />
+                <label class="btn btn-secondary rounded-0 py-3 fs-5" for="Lv50_tab3">Lv.50</label>
+              </div>
+
+              <hr class="my-1" />
+
+              <div id="shape-num_tab3" class="cp_ipradio text-center text-center row g-0">
+                <div>
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num0_tab3" value="0" checked />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num0_tab3">選択なし</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num1_tab3" value="1" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num1_tab3">1周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num2_tab3" value="2" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num2_tab3">2周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num3_tab3" value="3" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num3_tab3">3周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num4_tab3" value="4" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num4_tab3">4周目</label>
+                </div>
+
+                <!-- <div class="col-12"></div> -->
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num5_tab3" value="5" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num5_tab3">5周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num6_tab3" value="6" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num6_tab3">6周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num7_tab3" value="7" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num7_tab3">7周目</label>
+                </div>
+
+                <div class="col-3">
+                  <input type="radio" class="btn-check" name="shape-num_tab3" id="shape-num8_tab3" value="8" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5 w-100" for="shape-num8_tab3">8周目</label>
+                </div>
+              </div>
+
+              <!-- <hr class="my-1" /> -->
+
+              <div>
+                <div class="my-3">
+                  <select class="custom-select sources" id="mypokename_tab3">
+                    <!-- 他のポケモンの選択肢を追加 -->
+                  </select>
+                </div>
+
+                <div id="pokeShape_tab3" class="cp_ipradio btn-group w-100">
+                  <input type="radio" class="btn-check" name="shape_tab3" id="shape1_tab3" value="1" checked />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape1_tab3">1型</label>
+                  <input type="radio" class="btn-check" name="shape_tab3" id="shape2_tab3" value="2" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape2_tab3">2型</label>
+                  <input type="radio" class="btn-check" name="shape_tab3" id="shape3_tab3" value="3" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape3_tab3">3型</label>
+                  <input type="radio" class="btn-check" name="shape_tab3" id="shape4_tab3" value="4" />
+                  <label class="btn btn-secondary rounded-0 py-3 fs-5" for="shape4_tab3">4型</label>
+                </div>
+                <div>
+                  型を選ぶと↓下に候補の<span class="text-info">個体値</span>が表示されます。<br /><span
+                    class="text-danger"
+                    >ゲームと同じステータス</span
+                  >
+                  になるよう切り替えてください。
+                </div>
+                <div id="kota_tab3" class="cp_ipradio btn-group w-100"></div>
+
+                <div class="my_ST">
+                  <div class="d-flex">
+                    <img id="mypokeicon_tab3" class="my-auto" />
+                    <p id="mypoke_status_tab3" class="mx-auto">自分ポケモンステータス</p>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div class="d-none" style="font-size: 10px">
+                  ヒント<br />
+                  ※n周目最終戦のランク：n+1 以下は1〜6戦目のトレーナーランク<br />
+                  1周目　ランク1：すべて<br />
+                  2周目　ランク2：自転車/バトガ/空手/マダム/ベテラン/　他はランク1 <br />
+                  3周目　ランク3：スキン/サイキッカー/ブリーダー/ジェントル/研究員/ピエロ/　他はランク2 <br />
+                  4周目　ランク4：竜使い/エリトレ/レンジャー/　他はランク3 <br />
+                  5周目　ランク5：短パン/ミニスカ/塾帰り/御坊ちゃま/お嬢様/虫取り/〇〇ごっこ/アイドル/　他はランク4
+                  <br />
+                  6周目　ランク6：ジョギング/釣り人/遺跡/コレクター/ギタリスト/鳥使い/船乗り/山男/警察/ギャンブラー/　他はランク5
+                  <br />
+                  7周目　ランク7：キャンプ/ピクニック/大好きクラブ/ギタリスト(クワン,モンクットのみ)/アイドル/牧おじ/牛ガール/　他はランク6
+                  <br />
+                </div>
+                <div class="my-3">
+                  <select class="custom-select sources" id="trainers_tab3">
+                    <!-- トレーナーの選択肢を追加 -->
+                  </select>
+                </div>
+
+                <select class="custom-select sources" id="tekipokename_tab3">
+                  <!-- 敵のポケモンの選択肢を追加 -->
+                </select>
+                <div>
+                  <img
+                    class="tekipokeicon_tab3"
+                    alt="敵のポケモンアイコン"
+                    src="https://veekun.com/dex/media/pokemon/main-sprites/black-white/0.png"
+                  />
+                </div>
+                <div class="trainer_ST d-none">
+                  <p id="trainer_status_tab3"></p>
+                </div>
+                <ol class="teki_ST">
+                  <li id="tekipoke_status1_tab3">敵型1ステータス</li>
+                  <li id="tekipoke_status2_tab3">敵型2ステータス</li>
+                  <li id="tekipoke_status3_tab3">敵型3ステータス</li>
+                  <li id="tekipoke_status4_tab3">敵型4ステータス</li>
+                </ol>
+              </div>
+              <div class="calc">
+                <br />
+                <br />
+
+                <div class="Rank d-flex justify-content-around fs-3">
+                  <div class="myRank">
+                    自分ランク
+                    <div class="rank-container">
+                      A
+                      <div class="rank-value" id="myRankA_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('A', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('A', true)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      B
+                      <div class="rank-value" id="myRankB_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('B', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('B', true)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      C
+                      <div class="rank-value" id="myRankC_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('C', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('C', true)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      D
+                      <div class="rank-value" id="myRankD_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('D', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('D', true)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      S
+                      <div class="rank-value" id="myRankS_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('S', true)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('S', true)">-</button>
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+                  <br />
+                  <div class="tekiRank">
+                    敵ランク
+                    <div class="rank-container">
+                      A
+                      <div class="rank-value" id="tekiRankA_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('A', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('A', false)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      B
+                      <div class="rank-value" id="tekiRankB_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('B', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('B', false)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      C
+                      <div class="rank-value" id="tekiRankC_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('C', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('C', false)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      D
+                      <div class="rank-value" id="tekiRankD_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('D', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('D', false)">-</button>
+                    </div>
+
+                    <div class="rank-container">
+                      S
+                      <div class="rank-value" id="tekiRankS_tab3">+0</div>
+                      <button class="rnk-button" onclick="add_tab3('S', false)">＋</button>
+                      <button class="rnk-button ms-2" onclick="subtract_tab3('S', false)">-</button>
+                    </div>
+                  </div>
+                </div>
+                <br /><br />
+
+                <button class="rnk-button" id="myItemAuto_tab3">持ち物自動検索</button><br />
+                <button class="rnk-button mx-auto px-5" id="myItemAutoApply_tab3">計算に反映</button><br />
+                <div class="myItem_tab3">
+                  <label for="myItem_tab3">自分持ち物</label>
+                  <select id="myItem_tab3">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                </div>
+
+                <br />
+
+                <div class="tekiItem">
+                  <label for="tekiItem1_tab3">敵型1持ち物</label>
+                  <select id="tekiItem1_tab3">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                  <br />
+                  <label for="tekiItem2_tab3">敵型2持ち物</label>
+                  <select id="tekiItem2_tab3">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                  <br />
+
+                  <label for="tekiItem3_tab3">敵型3持ち物</label>
+                  <select id="tekiItem3_tab3">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                  <br />
+                  <label for="tekiItem4_tab3">敵型4持ち物</label>
+                  <select id="tekiItem4_tab3">
+                    <option value="0" selected>(なし/その他)</option>
+                    <option value="あやしいおこう">あやしいおこう</option>
+                    <option value="いのちのたま">いのちのたま</option>
+                    <option value="うしおのおこう">うしおのおこう</option>
+                    <option value="おはなのおこう">おはなのおこう</option>
+                    <option value="かたいいし">かたいいし</option>
+                    <option value="がんせきおこう">がんせきおこう</option>
+                    <option value="きせきのタネ">きせきのタネ</option>
+                    <option value="ぎんのこな">ぎんのこな</option>
+                    <option value="くろいてっきゅう">くろいてっきゅう</option>
+                    <option value="くろいメガネ">くろいメガネ</option>
+                    <option value="くろおび">くろおび</option>
+                    <option value="こだわりハチマキ">こだわりハチマキ</option>
+                    <option value="こだわりメガネ">こだわりメガネ</option>
+                    <option value="こだわりスカーフ">こだわりスカーフ</option>
+                    <option value="さざなみのおこう">さざなみのおこう</option>
+                    <option value="じしゃく">じしゃく</option>
+                    <option value="シルクのスカーフ">シルクのスカーフ</option>
+                    <option value="しんぴのしずく">しんぴのしずく</option>
+                    <option value="するどいくちばし">するどいくちばし</option>
+                    <option value="たつじんのおび">たつじんのおび</option>
+                    <option value="ちからのハチマキ">ちからのハチマキ</option>
+                    <option value="どくバリ">どくバリ</option>
+                    <option value="とけないこおり">とけないこおり</option>
+                    <option value="のろいのおふだ">のろいのおふだ</option>
+                    <option value="ふといホネ">ふといホネ</option>
+                    <option value="まがったスプーン">まがったスプーン</option>
+                    <option value="メタルコート">メタルコート</option>
+                    <option value="もくたん">もくたん</option>
+                    <option value="ものしりメガネ">ものしりメガネ</option>
+                    <option value="やわらかいすな">やわらかいすな</option>
+                    <option value="りゅうのキバ">りゅうのキバ</option>
+                    <option value="しんかいのウロコ">しんかいのウロコ</option>
+                    <option value="半減きのみ">----↓半減きのみ----</option>
+                    <option value="イトケのみ">イトケのみ</option>
+                    <option value="ウタンのみ">ウタンのみ</option>
+                    <option value="オッカのみ">オッカのみ</option>
+                    <option value="シュカのみ">シュカのみ</option>
+                    <option value="ソクノのみ">ソクノのみ</option>
+                    <option value="ナモのみ">ナモのみ</option>
+                    <option value="バコウのみ">バコウのみ</option>
+                    <option value="ハバンのみ">ハバンのみ</option>
+                    <option value="ヤチェのみ">ヤチェのみ</option>
+                    <option value="ヨプのみ">ヨプのみ</option>
+                    <option value="ヨロギのみ">ヨロギのみ</option>
+                    <option value="リンドのみ">リンドのみ</option>
+                  </select>
+                </div>
+                <br />
+
+                <div class="myAbility_tab3">
+                  <label for="myAbility_tab3">自分特性</label>
+                  <select id="myAbility_tab3" style="min-width: 30%">
+                    <option value="" selected>(とくせい)</option>
+                    <option value="いろめがね">いろめがね [こうかはいまひとつの時ダメージ*2]</option>
+                    <option value="げきりゅう">げきりゅう (＋自分のHPが1/3)[水威力*1.5]</option>
+                    <option value="こんじょう">こんじょう (＋状態異常)[攻撃*1.5]</option>
+                    <option value="しんりょく">しんりょく (＋自分のHPが1/3)[草威力*1.5]</option>
+                    <option value="スロースタート">スロースタート (＋5ターン未満)[攻撃*0.5]</option>
+                    <option value="テクニシャン">テクニシャン [威力60以下の技の威力*1.5]</option>
+                    <option value="てきおうりょく">てきおうりょく [タイプ一致補正が*2になる]</option>
+                    <option value="とうそうしん同">とうそうしん (＋同性)[*威力1.25]</option>
+                    <option value="とうそうしん異">とうそうしん (＋異性)[*威力0.75]</option>
+                    <option value="はりきり">はりきり [攻撃*1.5/命中*0.8]</option>
+                    <option value="むしのしらせ">むしのしらせ (＋自分のHPが1/3)[虫威力*1.5]</option>
+                    <option value="もうか">もうか (＋自分のHPが1/3)[炎威力*1.5]</option>
+                    <option value="もらいび">もらいび(＋被炎技)[炎ダメージ*1.5/炎無効]</option>
+                    <option value="ヨガパワー">ヨガパワー [攻撃*2]</option>
+                    //防御特性
+                    <option value="">(---防御特性---)</option>
+                    <option value="あついしぼう">あついしぼう [炎/氷*0.5]</option>
+                    <option value="かんそうはだ">かんそうはだ [炎*1.25/水無効(吸収)]</option>
+                    <option value="たいねつ">たいねつ [炎*0.5]</option>
+                    <option value="ハードロック">ハードロック [こうかはばつぐんの時ダメージ*0.75]</option>
+                    <option value="フィルター">フィルター [こうかはばつぐんの時ダメージ*0.75]</option>
+                    <option value="ふしぎなうろこ">ふしぎなうろこ (＋状態異常)[防御*1.5]</option>
+                    <option value="ふゆう">ふゆう [地面を無効化]</option>
+                  </select>
+                </div>
+                <br />
+
+                <div class="tekiAbility_tab3">
+                  <label for="tekiAbility_tab3">敵特性</label>
+                  <select id="tekiAbility_tab3" style="min-width: 30%">
+                    <option value="" selected>(とくせい)</option>
+                    <option value="いろめがね">いろめがね [こうかはいまひとつの時ダメージ*2]</option>
+                    <option value="げきりゅう">げきりゅう (＋自分のHPが1/3)[水威力*1.5]</option>
+                    <option value="こんじょう">こんじょう (＋状態異常)[攻撃*1.5]</option>
+                    <option value="しんりょく">しんりょく (＋自分のHPが1/3)[草威力*1.5]</option>
+                    <option value="スロースタート">スロースタート (＋5ターン未満)[攻撃*0.5]</option>
+                    <option value="テクニシャン">テクニシャン [威力60以下の技の威力*1.5]</option>
+                    <option value="てきおうりょく">てきおうりょく [タイプ一致補正が*2になる]</option>
+                    <option value="とうそうしん同">とうそうしん (＋同性)[*威力1.25]</option>
+                    <option value="とうそうしん異">とうそうしん (＋異性)[*威力0.75]</option>
+                    <option value="はりきり">はりきり [攻撃*1.5/命中*0.8]</option>
+                    <option value="むしのしらせ">むしのしらせ (＋自分のHPが1/3)[虫威力*1.5]</option>
+                    <option value="もうか">もうか (＋自分のHPが1/3)[炎威力*1.5]</option>
+                    <option value="もらいび">もらいび(＋被炎技)[炎ダメージ*1.5/炎無効]</option>
+                    <option value="ヨガパワー">ヨガパワー [攻撃*2]</option>
+                    //防御特性
+                    <option value="">(---防御特性---)</option>
+                    <option value="あついしぼう">あついしぼう [炎/氷*0.5]</option>
+                    <option value="かんそうはだ">かんそうはだ [炎*1.25/水無効(吸収)]</option>
+                    <option value="たいねつ">たいねつ [炎*0.5]</option>
+                    <option value="ハードロック">ハードロック [こうかはばつぐんの時ダメージ*0.75]</option>
+                    <option value="フィルター">フィルター [こうかはばつぐんの時ダメージ*0.75]</option>
+                    <option value="ふしぎなうろこ">ふしぎなうろこ (＋状態異常)[防御*1.5]</option>
+                    <option value="ふゆう">ふゆう [地面を無効化]</option>
+                  </select>
+                </div>
+                <br />
+                <br />
+
+                <div class="Burned app2_checkbox">
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[自]やけど</p>
+                    <div>
+                      <input type="checkbox" id="myBurned_tab3" />
+                      <label for="myBurned_tab3"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[自]まひ</p>
+                    <div>
+                      <input type="checkbox" id="myParalysis_tab3" />
+                      <label for="myParalysis_tab3"></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="Burned app2_checkbox">
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[敵]やけど</p>
+                    <div>
+                      <input type="checkbox" id="tekiBurned_tab3" />
+                      <label for="tekiBurned_tab3"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[敵]まひ</p>
+                    <div>
+                      <input type="checkbox" id="tekiParalysis_tab3" />
+                      <label for="tekiParalysis_tab3"></label>
+                    </div>
+                  </div>
+                </div>
+                <br />
+
+                <div class="kabe app2_checkbox">
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[自]リフレクター</p>
+                    <div>
+                      <input type="checkbox" id="myReflect_tab3" />
+                      <label for="myReflect_tab3"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[自]ひかりのかべ</p>
+                    <div>
+                      <input type="checkbox" id="myLightScreen_tab3" />
+                      <label for="myLightScreen_tab3"></label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="kabe app2_checkbox">
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[敵]リフレクター</p>
+                    <div>
+                      <input type="checkbox" id="tekiReflect_tab3" />
+                      <label for="tekiReflect_tab3"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-between mb-3 border-bottom border-secondary py-1">
+                    <p class="my-auto d-inline-block">[敵]ひかりのかべ</p>
+                    <div>
+                      <input type="checkbox" id="tekiLightScreen_tab3" />
+                      <label for="tekiLightScreen_tab3"></label>
+                    </div>
+                  </div>
+                </div>
+
+                <br />
+
+                <div class="whether_tab3">
+                  <label for="whether_tab3">天候</label>
+                  <select id="whether_tab3">
+                    <option value="(ふつう)" selected>(ふつう)</option>
+                    <option value="おおあめ">おおあめ</option>
+                    <option value="ひざしがつよい">ひざしがつよい</option>
+                    <option value="すなあらし">すなあらし</option>
+                    <option value="あられ">あられ</option>
+                  </select>
+                </div>
+                <br />
+                <br />
+
+                <div class="zanHP_tab3">
+                  残HP
+                  <input type="text" id="zanHP_tab3" value="1" />
+                </div>
+              </div>
+              <br />
+              <br />
+
+              <div class="result">
+                <ol id="myResult_tab3" class="myResult_tab3">
+                  <li id="M1_tab3">自分→型1</li>
+                  <li id="T1_tab3">敵型1→自分</li>
+                  <li id="M2_tab3">自分→型2</li>
+                  <li id="T2_tab3">敵型2→自分</li>
+                  <li id="M3_tab3">自分→型3</li>
+                  <li id="T3_tab3">敵型3→自分</li>
+                  <li id="M4_tab3">自分→型4</li>
+                  <li id="T4_tab3">敵型4→自分</li>
+                </ol>
+              </div>
+              <br /><br />
+            </div>
+          </div>
+        </div>
+        <!--↑タブ3↑↑ -->
+        <!--↑タブ3↑↑ -->
       </div>
-      <footer>© 2010 あなたのホームページ</footer>
     </div>
+
+    <footer class="text-start mt-5 mx-2 text-white">
+      <a class="text-white" href="https://veekun.com/"
+        ><img
+          src="https://veekun.com/static/local/images/button.png"
+          alt="veekun"
+          title="veekun"
+          style="border: 0"
+        />アイコンをお借りしているところ</a
+      >
+      <p>
+        ポケットモンスター・ポケモン・Pokémonは<a
+          class="text-white"
+          href="https://www.nintendo.co.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >任天堂</a
+        >・<a class="text-white" href="http://www.creatures.co.jp/" target="_blank" rel="noopener noreferrer"
+          >クリーチャーズ</a
+        >・<a class="text-white" href="http://www.gamefreak.co.jp/" target="_blank" rel="noopener noreferrer"
+          >ゲームフリーク</a
+        >の登録商標です。
+      </p>
+      <p>
+        当サイトは個人サイトであり、<a
+          class="text-white"
+          href="http://www.pokemon.co.jp/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >株式会社ポケモン</a
+        >他企業様とは一切関係ありません。
+      </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js?20250105"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js?20250105"></script> -->
+    <script src="js/select2.js?20250105"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/i18n/ja.js?20250105"></script>
+    <script src="https://github.com/niwaringo/moji/releases/download/V1.2.0/moji.js?20250105"></script>
+    <script src="js/kota.js?20250105"></script>
+    <script src="js/jisaku.js?20250105"></script>
+    <script src="js/my_status.js?20250105"></script>
+    <script src="js/teki_status.js?20250105"></script>
+    <script src="js/calc.js?20250105"></script>
+    <!-- <script src="js/wanpan1.js"></script> -->
+    <!-- <script src="js/wanpan2.js"></script> -->
+    <!-- <script src="js/wanpan3.js"></script> -->
+    <!-- <script src="js/wanpan4.js"></script> -->
+    <!-- <script src="js/wanpan5.js"></script> -->
+    <!-- <script src="js/wanpan6.js"></script> -->
+    <!-- <script src="js/wanpan7.js"></script> -->
+    <!-- <script src="js/wanpan8.js"></script> -->
+    <!-- <script src="js/copy.js?20250105"></script> -->
+    <script src="js/kota_tab2.js?20250105"></script>
+    <script src="js/jisaku_tab2.js?20250105"></script>
+    <script src="js/my_status_tab2.js?20250105"></script>
+    <script src="js/teki_status_tab2.js?20250105"></script>
+    <script src="js/calc_tab2.js?20250105.1"></script>
+    <!-- <script src="js/copy_tab2.js?20250105"></script> -->
+    <script src="js/kota_tab3.js?20250105"></script>
+    <script src="js/jisaku_tab3.js?20250105"></script>
+    <script src="js/my_status_tab3.js?20250105"></script>
+    <script src="js/teki_status_tab3.js?20250105"></script>
+    <script src="js/calc_tab3.js?20250105"></script>
+    <!-- <script src="js/copy_tab3.js?20250105"></script> -->
+
+    <script>
+      $(function () {
+        function customMatcher(params, data) {
+          if ($.trim(params.term) === "") {
+            return data;
+          }
+
+          if (typeof data.text === "undefined") {
+            return null;
+          }
+
+          let term = params.term.toUpperCase();
+
+          // 入力された文字列がひらがなの場合にのみ変換処理を行う
+          if (/[\u3040-\u309F]/.test(params.term)) {
+            term = moji(term).convert("HGtoKK").toString();
+          }
+
+          let text = moji(data.text.toUpperCase()).convert("ZEtoHE").convert("HKtoZK").convert("HGtoKK").toString();
+
+          if (text.indexOf(term) > -1) {
+            return data;
+          }
+
+          let searchText = $(data.element).data("search");
+          if (typeof searchText === "string") {
+            // 文字列であるかをチェックする
+            searchText = moji(searchText.toUpperCase())
+              .convert("ZEtoHE")
+              .convert("HKtoZK")
+              .convert("HGtoKK")
+              .toString();
+            if (searchText.indexOf(term) > -1) {
+              return data;
+            }
+          }
+          return null;
+        }
+        $("#mypokename").select2({
+          placeholder: "自分のポケモン",
+          width: "75%",
+          language: "ja",
+          matcher: customMatcher,
+        });
+        $("#trainers").select2({
+          width: "75%",
+          language: "ja",
+          matcher: customMatcher,
+        });
+        $("#tekipokename").select2({
+          width: "75%",
+          placeholder: "敵ポケモン",
+          language: "ja",
+          matcher: customMatcher,
+        });
+
+        // mypokenameが変更された際に呼び出される関数
+        $("#mypokename").on("change", function () {
+          const mypokename = $(this).val();
+          $("#mypokeicon").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/main-sprites/platinum/" + mypokename + ".png"
+          );
+          $("#mypoketabicon").attr("src", "https://veekun.com/dex/media/pokemon/icons/" + mypokename + ".png");
+        });
+
+        // tekipokenameが変更された際に呼び出される関数
+        $("#tekipokename").on("change", function () {
+          const tekipokename = $(this).val();
+          $(".tekipokeicon").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/main-sprites/platinum/" + tekipokename + ".png"
+          );
+          $("#tekipoketabicon").attr("src", "https://veekun.com/dex/media/pokemon/icons/" + tekipokename + ".png");
+        });
+      });
+
+      $(function () {
+        function customMatcher(params, data) {
+          if ($.trim(params.term) === "") {
+            return data;
+          }
+
+          if (typeof data.text === "undefined") {
+            return null;
+          }
+
+          let term = params.term.toUpperCase();
+
+          // 入力された文字列がひらがなの場合にのみ変換処理を行う
+          if (/[\u3040-\u309F]/.test(params.term)) {
+            term = moji(term).convert("HGtoKK").toString();
+          }
+
+          let text = moji(data.text.toUpperCase()).convert("ZEtoHE").convert("HKtoZK").convert("HGtoKK").toString();
+
+          if (text.indexOf(term) > -1) {
+            return data;
+          }
+
+          let searchText = $(data.element).data("search");
+          if (typeof searchText === "string") {
+            // 文字列であるかをチェックする
+            searchText = moji(searchText.toUpperCase())
+              .convert("ZEtoHE")
+              .convert("HKtoZK")
+              .convert("HGtoKK")
+              .toString();
+            if (searchText.indexOf(term) > -1) {
+              return data;
+            }
+          }
+          return null;
+        }
+        $("#mypokename_tab2").select2({
+          placeholder: "自分のポケモン",
+          width: "75%",
+          language: "ja",
+          matcher: customMatcher,
+        });
+        $("#trainers_tab2").select2({
+          width: "75%",
+          language: "ja",
+          matcher: customMatcher,
+        });
+        $("#tekipokename_tab2").select2({
+          width: "75%",
+          placeholder: "敵ポケモン",
+          language: "ja",
+          matcher: customMatcher,
+        });
+
+        // mypokenameが変更された際に呼び出される関数
+        $("#mypokename_tab2").on("change", function () {
+          const mypokename_tab2 = $(this).val();
+          $("#mypokeicon_tab2").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/main-sprites/platinum/" + mypokename_tab2 + ".png"
+          );
+          $("#mypoketabicon_tab2").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/icons/" + mypokename_tab2 + ".png"
+          );
+        });
+
+        // tekipokenameが変更された際に呼び出される関数
+        $("#tekipokename_tab2").on("change", function () {
+          const tekipokename_tab2 = $(this).val();
+          $(".tekipokeicon_tab2").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/main-sprites/platinum/" + tekipokename_tab2 + ".png"
+          );
+          $("#tekipoketabicon_tab2").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/icons/" + tekipokename_tab2 + ".png"
+          );
+        });
+      });
+
+      $(function () {
+        function customMatcher(params, data) {
+          if ($.trim(params.term) === "") {
+            return data;
+          }
+
+          if (typeof data.text === "undefined") {
+            return null;
+          }
+
+          let term = params.term.toUpperCase();
+
+          // 入力された文字列がひらがなの場合にのみ変換処理を行う
+          if (/[\u3040-\u309F]/.test(params.term)) {
+            term = moji(term).convert("HGtoKK").toString();
+          }
+
+          let text = moji(data.text.toUpperCase()).convert("ZEtoHE").convert("HKtoZK").convert("HGtoKK").toString();
+
+          if (text.indexOf(term) > -1) {
+            return data;
+          }
+
+          let searchText = $(data.element).data("search");
+          if (typeof searchText === "string") {
+            // 文字列であるかをチェックする
+            searchText = moji(searchText.toUpperCase())
+              .convert("ZEtoHE")
+              .convert("HKtoZK")
+              .convert("HGtoKK")
+              .toString();
+            if (searchText.indexOf(term) > -1) {
+              return data;
+            }
+          }
+          return null;
+        }
+        $("#mypokename_tab3").select2({
+          placeholder: "自分のポケモン",
+          width: "75%",
+          language: "ja",
+          matcher: customMatcher,
+        });
+        $("#trainers_tab3").select2({
+          width: "75%",
+          language: "ja",
+          matcher: customMatcher,
+        });
+        $("#tekipokename_tab3").select2({
+          width: "75%",
+          placeholder: "敵ポケモン",
+          language: "ja",
+          matcher: customMatcher,
+        });
+
+        // mypokenameが変更された際に呼び出される関数
+        $("#mypokename_tab3").on("change", function () {
+          const mypokename_tab3 = $(this).val();
+          $("#mypokeicon_tab3").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/main-sprites/platinum/" + mypokename_tab3 + ".png"
+          );
+          $("#mypoketabicon_tab3").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/icons/" + mypokename_tab3 + ".png"
+          );
+        });
+
+        // tekipokenameが変更された際に呼び出される関数
+        $("#tekipokename_tab3").on("change", function () {
+          const tekipokename_tab3 = $(this).val();
+          $(".tekipokeicon_tab3").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/main-sprites/platinum/" + tekipokename_tab3 + ".png"
+          );
+          $("#tekipoketabicon_tab3").attr(
+            "src",
+            "https://veekun.com/dex/media/pokemon/icons/" + tekipokename_tab3 + ".png"
+          );
+        });
+      });
+
+      $(document).ready(function () {
+        tabify("#tabs");
+      });
+    </script>
   </body>
 </html>
