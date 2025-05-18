@@ -16649,6 +16649,207 @@ $(
     }
   }
 
+  if (tekiItem1_tab2 === "カシブのみ") {
+    if (wtype1 === "ゴースト") {
+      teki1kinomiDisplay1 = "[カシブ]";
+
+      calc4P1_S1Critical = Math.floor((calc4P1_S1Critical * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型1に当てた時の威力
+      calc4P1_S1 = Math.floor((calc4P1_S1 * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型1に当てた時の威力
+      calc4KS1Power1Critical = Math.floor((calc4KS1Power1Critical * 50) / 100); //自分ポケ技1が敵型1への（補正あり）威力
+      calc4KS1Power1 = Math.floor((calc4KS1Power1 * 50) / 100); //自分ポケ技1が敵型1への（補正あり）威力
+      calc3P1_S1Critical = Math.floor((calc3P1_S1Critical * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型1に当てた時の威力
+      calc3P1_S1 = Math.floor((calc3P1_S1 * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型1に当てた時の威力
+      calc3KS1Power1Critical = Math.floor((calc3KS1Power1Critical * 50) / 100); //自分ポケ技1が敵型1への（補正あり）威力
+      calc3KS1Power1 = Math.floor((calc3KS1Power1 * 50) / 100); //自分ポケ技1が敵型1への（補正あり）威力
+    }
+    if (wtype2 === "ゴースト") {
+      teki1kinomiDisplay2 = "[カシブ]";
+
+      calc4P2_S1Critical = Math.floor((calc4P2_S1Critical * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型1に当てた時の威力
+      calc4P2_S1 = Math.floor((calc4P2_S1 * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型1に当てた時の威力
+      calc4KS1Power2Critical = Math.floor((calc4KS1Power2Critical * 50) / 100); //自分ポケ技2が敵型1への（補正あり）威力
+      calc4KS1Power2 = Math.floor((calc4KS1Power2 * 50) / 100); //自分ポケ技2が敵型1への（補正あり）威力
+      calc3P2_S1Critical = Math.floor((calc3P2_S1Critical * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型1に当てた時の威力
+      calc3P2_S1 = Math.floor((calc3P2_S1 * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型1に当てた時の威力
+      calc3KS1Power2Critical = Math.floor((calc3KS1Power2Critical * 50) / 100); //自分ポケ技2が敵型1への（補正あり）威力
+      calc3KS1Power2 = Math.floor((calc3KS1Power2 * 50) / 100); //自分ポケ技2が敵型1への（補正あり）威力
+    }
+    if (wtype3 === "ゴースト") {
+      teki1kinomiDisplay3 = "[カシブ]";
+
+      calc4P3_S1Critical = Math.floor((calc4P3_S1Critical * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型1に当てた時の威力
+      calc4P3_S1 = Math.floor((calc4P3_S1 * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型1に当てた時の威力
+      calc4KS1Power3Critical = Math.floor((calc4KS1Power3Critical * 50) / 100); //自分ポケ技3が敵型1への（補正あり）威力
+      calc4KS1Power3 = Math.floor((calc4KS1Power3 * 50) / 100); //自分ポケ技3が敵型1への（補正あり）威力
+      calc3P3_S1Critical = Math.floor((calc3P3_S1Critical * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型1に当てた時の威力
+      calc3P3_S1 = Math.floor((calc3P3_S1 * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型1に当てた時の威力
+      calc3KS1Power3Critical = Math.floor((calc3KS1Power3Critical * 50) / 100); //自分ポケ技3が敵型1への（補正あり）威力
+      calc3KS1Power3 = Math.floor((calc3KS1Power3 * 50) / 100); //自分ポケ技3が敵型1への（補正あり）威力
+    }
+    if (wtype4 === "ゴースト") {
+      teki1kinomiDisplay4 = "[カシブ]";
+
+      calc4P4_S1Critical = Math.floor((calc4P4_S1Critical * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型1に当てた時の威力
+      calc4P4_S1 = Math.floor((calc4P4_S1 * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型1に当てた時の威力
+      calc4KS1Power4Critical = Math.floor((calc4KS1Power4Critical * 50) / 100); //自分ポケ技4が敵型1への（補正あり）威力
+      calc4KS1Power4 = Math.floor((calc4KS1Power4 * 50) / 100); //自分ポケ技4が敵型1への（補正あり）威力
+      calc3P4_S1Critical = Math.floor((calc3P4_S1Critical * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型1に当てた時の威力
+      calc3P4_S1 = Math.floor((calc3P4_S1 * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型1に当てた時の威力
+      calc3KS1Power4Critical = Math.floor((calc3KS1Power4Critical * 50) / 100); //自分ポケ技4が敵型1への（補正あり）威力
+      calc3KS1Power4 = Math.floor((calc3KS1Power4 * 50) / 100); //自分ポケ技4が敵型1への（補正あり）威力
+    }
+  }
+  if (tekiItem2_tab2 === "カシブのみ") {
+    if (wtype1 === "ゴースト") {
+      teki2kinomiDisplay1 = "[カシブ]";
+
+      calc4P1_S2Critical = Math.floor((calc4P1_S2Critical * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型2に当てた時の威力
+      calc4P1_S2 = Math.floor((calc4P1_S2 * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型2に当てた時の威力
+      calc4KS2Power1Critical = Math.floor((calc4KS2Power1Critical * 50) / 100); //自分ポケ技1が敵型2への（補正あり）威力
+      calc4KS2Power1 = Math.floor((calc4KS2Power1 * 50) / 100); //自分ポケ技1が敵型2への（補正あり）威力
+      calc3P1_S2Critical = Math.floor((calc3P1_S2Critical * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型2に当てた時の威力
+      calc3P1_S2 = Math.floor((calc3P1_S2 * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型2に当てた時の威力
+      calc3KS2Power1Critical = Math.floor((calc3KS2Power1Critical * 50) / 100); //自分ポケ技1が敵型2への（補正あり）威力
+      calc3KS2Power1 = Math.floor((calc3KS2Power1 * 50) / 100); //自分ポケ技1が敵型2への（補正あり）威力
+    }
+    if (wtype2 === "ゴースト") {
+      teki2kinomiDisplay2 = "[カシブ]";
+
+      calc4P2_S2Critical = Math.floor((calc4P2_S2Critical * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型2に当てた時の威力
+      calc4P2_S2 = Math.floor((calc4P2_S2 * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型2に当てた時の威力
+      calc4KS2Power2Critical = Math.floor((calc4KS2Power2Critical * 50) / 100); //自分ポケ技2が敵型2への（補正あり）威力
+      calc4KS2Power2 = Math.floor((calc4KS2Power2 * 50) / 100); //自分ポケ技2が敵型2への（補正あり）威力
+      calc3P2_S2Critical = Math.floor((calc3P2_S2Critical * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型2に当てた時の威力
+      calc3P2_S2 = Math.floor((calc3P2_S2 * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型2に当てた時の威力
+      calc3KS2Power2Critical = Math.floor((calc3KS2Power2Critical * 50) / 100); //自分ポケ技2が敵型2への（補正あり）威力
+      calc3KS2Power2 = Math.floor((calc3KS2Power2 * 50) / 100); //自分ポケ技2が敵型2への（補正あり）威力
+    }
+    if (wtype3 === "ゴースト") {
+      teki2kinomiDisplay3 = "[カシブ]";
+
+      calc4P3_S2Critical = Math.floor((calc4P3_S2Critical * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型2に当てた時の威力
+      calc4P3_S2 = Math.floor((calc4P3_S2 * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型2に当てた時の威力
+      calc4KS2Power3Critical = Math.floor((calc4KS2Power3Critical * 50) / 100); //自分ポケ技3が敵型2への（補正あり）威力
+      calc4KS2Power3 = Math.floor((calc4KS2Power3 * 50) / 100); //自分ポケ技3が敵型2への（補正あり）威力
+      calc3P3_S2Critical = Math.floor((calc3P3_S2Critical * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型2に当てた時の威力
+      calc3P3_S2 = Math.floor((calc3P3_S2 * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型2に当てた時の威力
+      calc3KS2Power3Critical = Math.floor((calc3KS2Power3Critical * 50) / 100); //自分ポケ技3が敵型2への（補正あり）威力
+      calc3KS2Power3 = Math.floor((calc3KS2Power3 * 50) / 100); //自分ポケ技3が敵型2への（補正あり）威力
+    }
+    if (wtype4 === "ゴースト") {
+      teki2kinomiDisplay4 = "[カシブ]";
+
+      calc4P4_S2Critical = Math.floor((calc4P4_S2Critical * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型2に当てた時の威力
+      calc4P4_S2 = Math.floor((calc4P4_S2 * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型2に当てた時の威力
+      calc4KS2Power4Critical = Math.floor((calc4KS2Power4Critical * 50) / 100); //自分ポケ技4が敵型2への（補正あり）威力
+      calc4KS2Power4 = Math.floor((calc4KS2Power4 * 50) / 100); //自分ポケ技4が敵型2への（補正あり）威力
+      calc3P4_S2Critical = Math.floor((calc3P4_S2Critical * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型2に当てた時の威力
+      calc3P4_S2 = Math.floor((calc3P4_S2 * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型2に当てた時の威力
+      calc3KS2Power4Critical = Math.floor((calc3KS2Power4Critical * 50) / 100); //自分ポケ技4が敵型2への（補正あり）威力
+      calc3KS2Power4 = Math.floor((calc3KS2Power4 * 50) / 100); //自分ポケ技4が敵型2への（補正あり）威力
+    }
+  }
+  if (tekiItem3_tab2 === "カシブのみ") {
+    if (wtype1 === "ゴースト") {
+      teki3kinomiDisplay1 = "[カシブ]";
+
+      calc4P1_S3Critical = Math.floor((calc4P1_S3Critical * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型3に当てた時の威力
+      calc4P1_S3 = Math.floor((calc4P1_S3 * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型3に当てた時の威力
+      calc4KS3Power1Critical = Math.floor((calc4KS3Power1Critical * 50) / 100); //自分ポケ技1が敵型3への（補正あり）威力
+      calc4KS3Power1 = Math.floor((calc4KS3Power1 * 50) / 100); //自分ポケ技1が敵型3への（補正あり）威力
+      calc3P1_S3Critical = Math.floor((calc3P1_S3Critical * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型3に当てた時の威力
+      calc3P1_S3 = Math.floor((calc3P1_S3 * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型3に当てた時の威力
+      calc3KS3Power1Critical = Math.floor((calc3KS3Power1Critical * 50) / 100); //自分ポケ技1が敵型3への（補正あり）威力
+      calc3KS3Power1 = Math.floor((calc3KS3Power1 * 50) / 100); //自分ポケ技1が敵型3への（補正あり）威力
+    }
+    if (wtype2 === "ゴースト") {
+      teki3kinomiDisplay2 = "[カシブ]";
+
+      calc4P2_S3Critical = Math.floor((calc4P2_S3Critical * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型3に当てた時の威力
+      calc4P2_S3 = Math.floor((calc4P2_S3 * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型3に当てた時の威力
+      calc4KS3Power2Critical = Math.floor((calc4KS3Power2Critical * 50) / 100); //自分ポケ技2が敵型3への（補正あり）威力
+      calc4KS3Power2 = Math.floor((calc4KS3Power2 * 50) / 100); //自分ポケ技2が敵型3への（補正あり）威力
+      calc3P2_S3Critical = Math.floor((calc3P2_S3Critical * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型3に当てた時の威力
+      calc3P2_S3 = Math.floor((calc3P2_S3 * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型3に当てた時の威力
+      calc3KS3Power2Critical = Math.floor((calc3KS3Power2Critical * 50) / 100); //自分ポケ技2が敵型3への（補正あり）威力
+      calc3KS3Power2 = Math.floor((calc3KS3Power2 * 50) / 100); //自分ポケ技2が敵型3への（補正あり）威力
+    }
+    if (wtype3 === "ゴースト") {
+      teki3kinomiDisplay3 = "[カシブ]";
+
+      calc4P3_S3Critical = Math.floor((calc4P3_S3Critical * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型3に当てた時の威力
+      calc4P3_S3 = Math.floor((calc4P3_S3 * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型3に当てた時の威力
+      calc4KS3Power3Critical = Math.floor((calc4KS3Power3Critical * 50) / 100); //自分ポケ技3が敵型3への（補正あり）威力
+      calc4KS3Power3 = Math.floor((calc4KS3Power3 * 50) / 100); //自分ポケ技3が敵型3への（補正あり）威力
+      calc3P3_S3Critical = Math.floor((calc3P3_S3Critical * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型3に当てた時の威力
+      calc3P3_S3 = Math.floor((calc3P3_S3 * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型3に当てた時の威力
+      calc3KS3Power3Critical = Math.floor((calc3KS3Power3Critical * 50) / 100); //自分ポケ技3が敵型3への（補正あり）威力
+      calc3KS3Power3 = Math.floor((calc3KS3Power3 * 50) / 100); //自分ポケ技3が敵型3への（補正あり）威力
+    }
+    if (wtype4 === "ゴースト") {
+      teki3kinomiDisplay4 = "[カシブ]";
+
+      calc4P4_S3Critical = Math.floor((calc4P4_S3Critical * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型3に当てた時の威力
+      calc4P4_S3 = Math.floor((calc4P4_S3 * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型3に当てた時の威力
+      calc4KS3Power4Critical = Math.floor((calc4KS3Power4Critical * 50) / 100); //自分ポケ技4が敵型3への（補正あり）威力
+      calc4KS3Power4 = Math.floor((calc4KS3Power4 * 50) / 100); //自分ポケ技4が敵型3への（補正あり）威力
+      calc3P4_S3Critical = Math.floor((calc3P4_S3Critical * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型3に当てた時の威力
+      calc3P4_S3 = Math.floor((calc3P4_S3 * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型3に当てた時の威力
+      calc3KS3Power4Critical = Math.floor((calc3KS3Power4Critical * 50) / 100); //自分ポケ技4が敵型3への（補正あり）威力
+      calc3KS3Power4 = Math.floor((calc3KS3Power4 * 50) / 100); //自分ポケ技4が敵型3への（補正あり）威力
+    }
+  }
+  if (tekiItem4_tab2 === "カシブのみ") {
+    if (wtype1 === "ゴースト") {
+      teki4kinomiDisplay1 = "[カシブ]";
+
+      calc4P1_S4Critical = Math.floor((calc4P1_S4Critical * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型4に当てた時の威力
+      calc4P1_S4 = Math.floor((calc4P1_S4 * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型4に当てた時の威力
+      calc4KS4Power1Critical = Math.floor((calc4KS4Power1Critical * 50) / 100); //自分ポケ技1が敵型4への（補正あり）威力
+      calc4KS4Power1 = Math.floor((calc4KS4Power1 * 50) / 100); //自分ポケ技1が敵型4への（補正あり）威力
+      calc3P1_S4Critical = Math.floor((calc3P1_S4Critical * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型4に当てた時の威力
+      calc3P1_S4 = Math.floor((calc3P1_S4 * 50) / 100); //自分ポケ技1例外補正なし威力 を敵型4に当てた時の威力
+      calc3KS4Power1Critical = Math.floor((calc3KS4Power1Critical * 50) / 100); //自分ポケ技1が敵型4への（補正あり）威力
+      calc3KS4Power1 = Math.floor((calc3KS4Power1 * 50) / 100); //自分ポケ技1が敵型4への（補正あり）威力
+    }
+    if (wtype2 === "ゴースト") {
+      teki4kinomiDisplay2 = "[カシブ]";
+
+      calc4P2_S4Critical = Math.floor((calc4P2_S4Critical * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型4に当てた時の威力
+      calc4P2_S4 = Math.floor((calc4P2_S4 * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型4に当てた時の威力
+      calc4KS4Power2Critical = Math.floor((calc4KS4Power2Critical * 50) / 100); //自分ポケ技2が敵型4への（補正あり）威力
+      calc4KS4Power2 = Math.floor((calc4KS4Power2 * 50) / 100); //自分ポケ技2が敵型4への（補正あり）威力
+      calc3P2_S4Critical = Math.floor((calc3P2_S4Critical * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型4に当てた時の威力
+      calc3P2_S4 = Math.floor((calc3P2_S4 * 50) / 100); //自分ポケ技2例外補正なし威力 を敵型4に当てた時の威力
+      calc3KS4Power2Critical = Math.floor((calc3KS4Power2Critical * 50) / 100); //自分ポケ技2が敵型4への（補正あり）威力
+      calc3KS4Power2 = Math.floor((calc3KS4Power2 * 50) / 100); //自分ポケ技2が敵型4への（補正あり）威力
+    }
+    if (wtype3 === "ゴースト") {
+      teki4kinomiDisplay3 = "[カシブ]";
+
+      calc4P3_S4Critical = Math.floor((calc4P3_S4Critical * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型4に当てた時の威力
+      calc4P3_S4 = Math.floor((calc4P3_S4 * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型4に当てた時の威力
+      calc4KS4Power3Critical = Math.floor((calc4KS4Power3Critical * 50) / 100); //自分ポケ技3が敵型4への（補正あり）威力
+      calc4KS4Power3 = Math.floor((calc4KS4Power3 * 50) / 100); //自分ポケ技3が敵型4への（補正あり）威力
+      calc3P3_S4Critical = Math.floor((calc3P3_S4Critical * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型4に当てた時の威力
+      calc3P3_S4 = Math.floor((calc3P3_S4 * 50) / 100); //自分ポケ技3例外補正なし威力 を敵型4に当てた時の威力
+      calc3KS4Power3Critical = Math.floor((calc3KS4Power3Critical * 50) / 100); //自分ポケ技3が敵型4への（補正あり）威力
+      calc3KS4Power3 = Math.floor((calc3KS4Power3 * 50) / 100); //自分ポケ技3が敵型4への（補正あり）威力
+    }
+    if (wtype4 === "ゴースト") {
+      teki4kinomiDisplay4 = "[カシブ]";
+
+      calc4P4_S4Critical = Math.floor((calc4P4_S4Critical * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型4に当てた時の威力
+      calc4P4_S4 = Math.floor((calc4P4_S4 * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型4に当てた時の威力
+      calc4KS4Power4Critical = Math.floor((calc4KS4Power4Critical * 50) / 100); //自分ポケ技4が敵型4への（補正あり）威力
+      calc4KS4Power4 = Math.floor((calc4KS4Power4 * 50) / 100); //自分ポケ技4が敵型4への（補正あり）威力
+      calc3P4_S4Critical = Math.floor((calc3P4_S4Critical * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型4に当てた時の威力
+      calc3P4_S4 = Math.floor((calc3P4_S4 * 50) / 100); //自分ポケ技4例外補正なし威力 を敵型4に当てた時の威力
+      calc3KS4Power4Critical = Math.floor((calc3KS4Power4Critical * 50) / 100); //自分ポケ技4が敵型4への（補正あり）威力
+      calc3KS4Power4 = Math.floor((calc3KS4Power4 * 50) / 100); //自分ポケ技4が敵型4への（補正あり）威力
+    }
+  }
+
   if (tekiItem1_tab2 === "シュカのみ") {
     if (wtype1 === "じめん") {
       teki1kinomiDisplay1 = "[シュカ]";
@@ -19069,6 +19270,200 @@ $(
       calc3KPower4S4Critical = Math.floor((calc3KPower4S4Critical * 50) / 100); //敵4ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定)
     }
   }
+
+  if (myItem_tab2 === "カシブのみ") {
+    if (wtype1S1 === "ゴースト") {
+      myKinomiDisplayS1W1 = "[カシブ]";
+      calc4P1S1 = Math.floor((calc4P1S1 * 50) / 100); //敵ポケ１技1例外補正なし威力
+      calc4KPower1S1 = Math.floor((calc4KPower1S1 * 50) / 100); //敵1ポケ技1（補正あり）威力
+      calc4P1S1Critical = Math.floor((calc4P1S1Critical * 50) / 100); //敵ポケ１技1例外補正なし威力
+      calc4KPower1S1Critical = Math.floor((calc4KPower1S1Critical * 50) / 100); //敵1ポケ技1（補正あり）威力
+      calc3P1S1 = Math.floor((calc3P1S1 * 50) / 100); //敵ポケ１技1例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower1S1 = Math.floor((calc3KPower1S1 * 50) / 100); //敵1ポケ技1（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P1S1Critical = Math.floor((calc3P1S1Critical * 50) / 100); //敵ポケ１技1例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower1S1Critical = Math.floor((calc3KPower1S1Critical * 50) / 100); //敵1ポケ技1（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype2S1 === "ゴースト") {
+      myKinomiDisplayS1W2 = "[カシブ]";
+      //敵型1技2
+      calc4P2S1 = Math.floor((calc4P2S1 * 50) / 100); //敵ポケ１技2例外補正なし威力
+      calc4KPower2S1 = Math.floor((calc4KPower2S1 * 50) / 100); //敵1ポケ技2（補正あり）威力
+      calc4P2S1Critical = Math.floor((calc4P2S1Critical * 50) / 100); //敵ポケ１技2例外補正なし威力
+      calc4KPower2S1Critical = Math.floor((calc4KPower2S1Critical * 50) / 100); //敵1ポケ技2（補正あり）威力
+      calc3P2S1 = Math.floor((calc3P2S1 * 50) / 100); //敵ポケ１技2例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower2S1 = Math.floor((calc3KPower2S1 * 50) / 100); //敵1ポケ技2（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P2S1Critical = Math.floor((calc3P2S1Critical * 50) / 100); //敵ポケ１技2例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower2S1Critical = Math.floor((calc3KPower2S1Critical * 50) / 100); //敵1ポケ技2（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype3S1 === "ゴースト") {
+      myKinomiDisplayS1W3 = "[カシブ]";
+      //敵型1技3
+      calc4P3S1 = Math.floor((calc4P3S1 * 50) / 100); //敵ポケ１技3例外補正なし威力
+      calc4KPower3S1 = Math.floor((calc4KPower3S1 * 50) / 100); //敵1ポケ技3（補正あり）威力
+      calc4P3S1Critical = Math.floor((calc4P3S1Critical * 50) / 100); //敵ポケ１技3例外補正なし威力
+      calc4KPower3S1Critical = Math.floor((calc4KPower3S1Critical * 50) / 100); //敵1ポケ技3（補正あり）威力
+      calc3P3S1 = Math.floor((calc3P3S1 * 50) / 100); //敵ポケ１技3例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower3S1 = Math.floor((calc3KPower3S1 * 50) / 100); //敵1ポケ技3（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P3S1Critical = Math.floor((calc3P3S1Critical * 50) / 100); //敵ポケ１技3例外補正なし威力 * A/B or C/D(物理か特殊判定)  ○
+      calc3KPower3S1Critical = Math.floor((calc3KPower3S1Critical * 50) / 100); //敵1ポケ技3（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype4S1 === "ゴースト") {
+      myKinomiDisplayS1W4 = "[カシブ]";
+      //敵型1技4
+      calc4P4S1 = Math.floor((calc4P4S1 * 50) / 100); //敵ポケ１技4例外補正なし威力
+      calc4KPower4S1 = Math.floor((calc4KPower4S1 * 50) / 100); //敵1ポケ技4（補正あり）威力
+      calc4P4S1Critical = Math.floor((calc4P4S1Critical * 50) / 100); //敵ポケ１技4例外補正なし威力
+      calc4KPower4S1Critical = Math.floor((calc4KPower4S1Critical * 50) / 100); //敵1ポケ技4（補正あり）威力
+      calc3P4S1 = Math.floor((calc3P4S1 * 50) / 100); //敵ポケ１技4例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower4S1 = Math.floor((calc3KPower4S1 * 50) / 100); //敵1ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P4S1Critical = Math.floor((calc3P4S1Critical * 50) / 100); //敵ポケ１技4例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower4S1Critical = Math.floor((calc3KPower4S1Critical * 50) / 100); //敵1ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+
+    if (wtype1S2 === "ゴースト") {
+      myKinomiDisplayS2W1 = "[カシブ]";
+      calc4P1S2 = Math.floor((calc4P1S2 * 50) / 100); //敵ポケ2技1例外補正なし威力
+      calc4KPower1S2 = Math.floor((calc4KPower1S2 * 50) / 100); //敵2ポケ技1（補正あり）威力
+      calc4P1S2Critical = Math.floor((calc4P1S2Critical * 50) / 100); //敵ポケ2技1例外補正なし威力
+      calc4KPower1S2Critical = Math.floor((calc4KPower1S2Critical * 50) / 100); //敵2ポケ技1（補正あり）威力
+      calc3P1S2 = Math.floor((calc3P1S2 * 50) / 100); //敵ポケ2技1例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower1S2 = Math.floor((calc3KPower1S2 * 50) / 100); //敵2ポケ技1（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P1S2Critical = Math.floor((calc3P1S2Critical * 50) / 100); //敵ポケ2技1例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower1S2Critical = Math.floor((calc3KPower1S2Critical * 50) / 100); //敵2ポケ技1（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype2S2 === "ゴースト") {
+      myKinomiDisplayS2W2 = "[カシブ]";
+      //敵型2技2
+      calc4P2S2 = Math.floor((calc4P2S2 * 50) / 100); //敵ポケ2技2例外補正なし威力
+      calc4KPower2S2 = Math.floor((calc4KPower2S2 * 50) / 100); //敵2ポケ技2（補正あり）威力
+      calc4P2S2Critical = Math.floor((calc4P2S2Critical * 50) / 100); //敵ポケ2技2例外補正なし威力
+      calc4KPower2S2Critical = Math.floor((calc4KPower2S2Critical * 50) / 100); //敵2ポケ技2（補正あり）威力
+      calc3P2S2 = Math.floor((calc3P2S2 * 50) / 100); //敵ポケ2技2例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower2S2 = Math.floor((calc3KPower2S2 * 50) / 100); //敵2ポケ技2（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P2S2Critical = Math.floor((calc3P2S2Critical * 50) / 100); //敵ポケ2技2例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower2S2Critical = Math.floor((calc3KPower2S2Critical * 50) / 100); //敵2ポケ技2（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype3S2 === "ゴースト") {
+      myKinomiDisplayS2W3 = "[カシブ]";
+      //敵型2技3
+      calc4P3S2 = Math.floor((calc4P3S2 * 50) / 100); //敵ポケ2技3例外補正なし威力
+      calc4KPower3S2 = Math.floor((calc4KPower3S2 * 50) / 100); //敵2ポケ技3（補正あり）威力
+      calc4P3S2Critical = Math.floor((calc4P3S2Critical * 50) / 100); //敵ポケ2技3例外補正なし威力
+      calc4KPower3S2Critical = Math.floor((calc4KPower3S2Critical * 50) / 100); //敵2ポケ技3（補正あり）威力
+      calc3P3S2 = Math.floor((calc3P3S2 * 50) / 100); //敵ポケ2技3例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower3S2 = Math.floor((calc3KPower3S2 * 50) / 100); //敵2ポケ技3（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P3S2Critical = Math.floor((calc3P3S2Critical * 50) / 100); //敵ポケ2技3例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower3S2Critical = Math.floor((calc3KPower3S2Critical * 50) / 100); //敵2ポケ技3（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype4S2 === "ゴースト") {
+      myKinomiDisplayS2W4 = "[カシブ]";
+      calc4P4S2 = Math.floor((calc4P4S2 * 50) / 100); //敵ポケ2技4例外補正なし威力
+      calc4KPower4S2 = Math.floor((calc4KPower4S2 * 50) / 100); //敵2ポケ技4（補正あり）威力
+      calc4P4S2Critical = Math.floor((calc4P4S2Critical * 50) / 100); //敵ポケ2技4例外補正なし威力
+      calc4KPower4S2Critical = Math.floor((calc4KPower4S2Critical * 50) / 100); //敵2ポケ技4（補正あり）威力
+      calc3P4S2 = Math.floor((calc3P4S2 * 50) / 100); //敵ポケ2技4例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower4S2 = Math.floor((calc3KPower4S2 * 50) / 100); //敵2ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P4S2Critical = Math.floor((calc3P4S2Critical * 50) / 100); //敵ポケ2技4例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower4S2Critical = Math.floor((calc3KPower4S2Critical * 50) / 100); //敵2ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+
+    if (wtype1S3 === "ゴースト") {
+      myKinomiDisplayS3W1 = "[カシブ]";
+      calc4P1S3 = Math.floor((calc4P1S3 * 50) / 100); //敵ポケ3技1例外補正なし威力
+      calc4KPower1S3 = Math.floor((calc4KPower1S3 * 50) / 100); //敵3ポケ技1（補正あり）威力
+      calc4P1S3Critical = Math.floor((calc4P1S3Critical * 50) / 100); //敵ポケ3技1例外補正なし威力
+      calc4KPower1S3Critical = Math.floor((calc4KPower1S3Critical * 50) / 100); //敵3ポケ技1（補正あり）威力
+      calc3P1S3 = Math.floor((calc3P1S3 * 50) / 100); //敵ポケ3技1例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower1S3 = Math.floor((calc3KPower1S3 * 50) / 100); //敵3ポケ技1（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P1S3Critical = Math.floor((calc3P1S3Critical * 50) / 100); //敵ポケ3技1例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower1S3Critical = Math.floor((calc3KPower1S3Critical * 50) / 100); //敵3ポケ技1（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype2S3 === "ゴースト") {
+      myKinomiDisplayS3W2 = "[カシブ]";
+      //敵型3技2
+      calc4P2S3 = Math.floor((calc4P2S3 * 50) / 100); //敵ポケ3技2例外補正なし威力
+      calc4KPower2S3 = Math.floor((calc4KPower2S3 * 50) / 100); //敵3ポケ技2（補正あり）威力
+      calc4P2S3Critical = Math.floor((calc4P2S3Critical * 50) / 100); //敵ポケ3技2例外補正なし威力
+      calc4KPower2S3Critical = Math.floor((calc4KPower2S3Critical * 50) / 100); //敵3ポケ技2（補正あり）威力
+      calc3P2S3 = Math.floor((calc3P2S3 * 50) / 100); //敵ポケ3技2例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower2S3 = Math.floor((calc3KPower2S3 * 50) / 100); //敵3ポケ技2（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P2S3Critical = Math.floor((calc3P2S3Critical * 50) / 100); //敵ポケ3技2例外補正なし威力 * A/B or C/D(物理か特殊判定)  ○
+      calc3KPower2S3Critical = Math.floor((calc3KPower2S3Critical * 50) / 100); //敵3ポケ技2（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype3S3 === "ゴースト") {
+      myKinomiDisplayS3W3 = "[カシブ]";
+      //敵型3技3
+      calc4P3S3 = Math.floor((calc4P3S3 * 50) / 100); //敵ポケ3技3例外補正なし威力
+      calc4KPower3S3 = Math.floor((calc4KPower3S3 * 50) / 100); //敵3ポケ技3（補正あり）威力
+      calc4P3S3Critical = Math.floor((calc4P3S3Critical * 50) / 100); //敵ポケ3技3例外補正なし威力
+      calc4KPower3S3Critical = Math.floor((calc4KPower3S3Critical * 50) / 100); //敵3ポケ技3（補正あり）威力
+      calc3P3S3 = Math.floor((calc3P3S3 * 50) / 100); //敵ポケ3技3例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower3S3 = Math.floor((calc3KPower3S3 * 50) / 100); //敵3ポケ技3（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P3S3Critical = Math.floor((calc3P3S3Critical * 50) / 100); //敵ポケ3技3例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower3S3Critical = Math.floor((calc3KPower3S3Critical * 50) / 100); //敵3ポケ技3（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype4S3 === "ゴースト") {
+      myKinomiDisplayS3W4 = "[カシブ]";
+      //敵型3技4
+      calc4P4S3 = Math.floor((calc4P4S3 * 50) / 100); //敵ポケ3技4例外補正なし威力
+      calc4KPower4S3 = Math.floor((calc4KPower4S3 * 50) / 100); //敵3ポケ技4（補正あり）威力
+      calc4P4S3Critical = Math.floor((calc4P4S3Critical * 50) / 100); //敵ポケ3技4例外補正なし威力
+      calc4KPower4S3Critical = Math.floor((calc4KPower4S3Critical * 50) / 100); //敵3ポケ技4（補正あり）威力
+      calc3P4S3 = Math.floor((calc3P4S3 * 50) / 100); //敵ポケ3技4例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower4S3 = Math.floor((calc3KPower4S3 * 50) / 100); //敵3ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P4S3Critical = Math.floor((calc3P4S3Critical * 50) / 100); //敵ポケ3技4例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower4S3Critical = Math.floor((calc3KPower4S3Critical * 50) / 100); //敵3ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+
+    if (wtype1S4 === "ゴースト") {
+      myKinomiDisplayS4W1 = "[カシブ]";
+      calc4P1S4 = Math.floor((calc4P1S4 * 50) / 100); //敵ポケ4技1例外補正なし威力
+      calc4KPower1S4 = Math.floor((calc4KPower1S4 * 50) / 100); //敵4ポケ技1（補正あり）威力
+      calc4P1S4Critical = Math.floor((calc4P1S4Critical * 50) / 100); //敵ポケ4技1例外補正なし威力
+      calc4KPower1S4Critical = Math.floor((calc4KPower1S4Critical * 50) / 100); //敵4ポケ技1（補正あり）威力
+      calc3P1S4 = Math.floor((calc3P1S4 * 50) / 100); //敵ポケ4技1例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower1S4 = Math.floor((calc3KPower1S4 * 50) / 100); //敵4ポケ技1（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P1S4Critical = Math.floor((calc3P1S4Critical * 50) / 100); //敵ポケ4技1例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower1S4Critical = Math.floor((calc3KPower1S4Critical * 50) / 100); //敵4ポケ技1（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype2S4 === "ゴースト") {
+      myKinomiDisplayS4W2 = "[カシブ]";
+      //敵型4技2
+      calc4P2S4 = Math.floor((calc4P2S4 * 50) / 100); //敵ポケ4技2例外補正なし威力
+      calc4KPower2S4 = Math.floor((calc4KPower2S4 * 50) / 100); //敵4ポケ技2（補正あり）威力
+      calc4P2S4Critical = Math.floor((calc4P2S4Critical * 50) / 100); //敵ポケ4技2例外補正なし威力
+      calc4KPower2S4Critical = Math.floor((calc4KPower2S4Critical * 50) / 100); //敵4ポケ技2（補正あり）威力
+      calc3P2S4 = Math.floor((calc3P2S4 * 50) / 100); //敵ポケ4技2例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower2S4 = Math.floor((calc3KPower2S4 * 50) / 100); //敵4ポケ技2（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P2S4Critical = Math.floor((calc3P2S4Critical * 50) / 100); //敵ポケ4技2例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower2S4Critical = Math.floor((calc3KPower2S4Critical * 50) / 100); //敵4ポケ技2（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype3S4 === "ゴースト") {
+      myKinomiDisplayS4W3 = "[カシブ]";
+      //敵型4技3
+      calc4P3S4 = Math.floor((calc4P3S4 * 50) / 100); //敵ポケ4技3例外補正なし威力
+      calc4KPower3S4 = Math.floor((calc4KPower3S4 * 50) / 100); //敵4ポケ技3（補正あり）威力
+      calc4P3S4Critical = Math.floor((calc4P3S4Critical * 50) / 100); //敵ポケ4技3例外補正なし威力
+      calc4KPower3S4Critical = Math.floor((calc4KPower3S4Critical * 50) / 100); //敵4ポケ技3（補正あり）威力
+      calc3P3S4 = Math.floor((calc3P3S4 * 50) / 100); //敵ポケ4技3例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower3S4 = Math.floor((calc3KPower3S4 * 50) / 100); //敵4ポケ技3（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P3S4Critical = Math.floor((calc3P3S4Critical * 50) / 100); //敵ポケ4技3例外補正なし威力 * A/B or C/D(物理か特殊判定)
+      calc3KPower3S4Critical = Math.floor((calc3KPower3S4Critical * 50) / 100); //敵4ポケ技3（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+    if (wtype4S4 === "ゴースト") {
+      myKinomiDisplayS4W4 = "[カシブ]";
+      //敵型4技4
+      calc4P4S4 = Math.floor((calc4P4S4 * 50) / 100); //敵ポケ4技4例外補正なし威力
+      calc4KPower4S4 = Math.floor((calc4KPower4S4 * 50) / 100); //敵4ポケ技4（補正あり）威力
+      calc4P4S4Critical = Math.floor((calc4P4S4Critical * 50) / 100); //敵ポケ4技4例外補正なし威力
+      calc4KPower4S4Critical = Math.floor((calc4KPower4S4Critical * 50) / 100); //敵4ポケ技4（補正あり）威力
+      calc3P4S4 = Math.floor((calc3P4S4 * 50) / 100); //敵ポケ4技4例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower4S4 = Math.floor((calc3KPower4S4 * 50) / 100); //敵4ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定) ○
+      calc3P4S4Critical = Math.floor((calc3P4S4Critical * 50) / 100); //敵ポケ4技4例外補正なし威力 * A/B or C/D(物理か特殊判定) ○
+      calc3KPower4S4Critical = Math.floor((calc3KPower4S4Critical * 50) / 100); //敵4ポケ技4（補正あり）威力 * A/B or C/D(物理か特殊判定)
+    }
+  }
+
   if (myItem_tab2 === "シュカのみ") {
     if (wtype1S1 === "じめん") {
       myKinomiDisplayS1W1 = "[シュカ]";
